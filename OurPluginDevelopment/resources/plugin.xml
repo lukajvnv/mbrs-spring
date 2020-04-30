@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+        id="our.first.plugin"
+        name="Our First Plugin"
+        version="1.0"
+        provider-name="FTN Team Jovanovic, Djuka, Popovic"
+        class="ourplugin.OurPlugin">
+        <requires>
+           <api version="1.0"/>
+        </requires>
+        <runtime>
+           <library name="ourplugin.jar"/>
+           <library name="freemarker_2_3_30.jar"/>
+           <library name="xstream-1.3.1.jar"/>
+        </runtime>
+</plugin>

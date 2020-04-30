@@ -1,0 +1,49 @@
+<project name="OurPlugin" default="deploy">
+	
+	<property file="build.properties"/>
+	
+	<path id="mylibs">
+		<fileset dir="lib" includes="*.jar"/>
+	</path>
+	
+	<path id="magicdraw-libs">
+		<fileset dir="${MAGICDRAW_HOME}/lib" includes="**/*.jar"/>
+	</path>
+	
+	<path id="all-libs">
+		<path refid="mylibs"/>
+		<path refid="magicdraw-libs"/>
+	</path>
+	
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+	
+	<target name="compile">
+		<mkdir dir="bin"/>
+		<javac target="1.7" source="1.7" debug="yes" destdir="bin" srcdir="src" classpathref="all-libs"/>
+	</target>
+	
+	<target name="build" depends="compile">
+		<mkdir dir="dist"/>
+		<jar destfile="dist/ourplugin.jar" basedir="bin">
+			<zipfileset dir="bin" includes="**"/>
+		</jar>
+	</target>
+		
+	<target name="deploy" depends="build">
+		<mkdir dir="${MAGICDRAW_HOME}/plugins/ourplugin"/>
+		<copy file="dist/ourplugin.jar" todir="${MAGICDRAW_HOME}/plugins/ourplugin"/>
+		<copy file="resources/plugin.xml" todir="${MAGICDRAW_HOME}/plugins/ourplugin"/>
+		<copy file="resources/ProjectOptions.xml" todir="${MAGICDRAW_HOME}/plugins/ourplugin"/>
+		<copy todir="${MAGICDRAW_HOME}/plugins/ourplugin">
+			<fileset dir="lib" includes="*.jar"/>
+		</copy>
+		<copy todir="${MAGICDRAW_HOME}/plugins/ourplugin/templates">
+			<fileset dir="resources/templates"/>
+		</copy>
+		<copy todir="${MAGICDRAW_HOME}/plugins/ourplugin/logs">
+			<fileset dir="resources/logs" includes="*.txt"/>
+		</copy>
+	</target>
+</project>
