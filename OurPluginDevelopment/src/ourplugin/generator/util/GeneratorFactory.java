@@ -3,6 +3,8 @@ package ourplugin.generator.util;
 import ourplugin.generator.BaseRepositoryGenerator;
 import ourplugin.generator.BaseRepositoryImplGenerator;
 import ourplugin.generator.BasicGenerator;
+import ourplugin.generator.ControllerAbstractGenerator;
+import ourplugin.generator.ControllerGenerator;
 import ourplugin.generator.EJBGenerator;
 import ourplugin.generator.EntityGenerator;
 import ourplugin.generator.MainGenerator;
@@ -17,7 +19,9 @@ public class GeneratorFactory {
 		RepositoryGenerator,
 		BaseRepositoryGenerator,
 		BaseRepositoryImplGenerator,
-		MainGenerator
+		MainGenerator,
+		ControllerAbstractGenerator,
+		ControllerGenerator
 	}
 
 	public static BasicGenerator getGenerator(GeneratorOptions generatorOptions) {
@@ -42,6 +46,10 @@ public class GeneratorFactory {
 				return new BaseRepositoryImplGenerator(generatorOptions);
 			case MainGenerator:
 				return new MainGenerator(generatorOptions);
+			case ControllerAbstractGenerator:
+				return new ControllerAbstractGenerator(generatorOptions);
+			case ControllerGenerator:
+				return new ControllerGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}

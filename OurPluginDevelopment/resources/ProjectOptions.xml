@@ -220,5 +220,23 @@
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
+		<generator_option>
+			<generatorName>ControllerAbstractGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>controller_abstract</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}ControllerAbstract.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ControllerGenerator</generatorName>
+			<outputPath>c:/temp/our_app_hand</outputPath>
+			<templateName>controller</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Controller.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
 	</environment>
 </generator_options>

@@ -112,14 +112,11 @@ public class TestPackageGeneration {
 		
 		XStream xstream = new XStream(new DomDriver());    
 		 
-		FMModel loadedConfig = (FMModel) xstream.fromXML(r);
+		FMModel loadedModel = (FMModel) xstream.fromXML(r);
 		
 		
-		FMModel.getInstance().setClasses(loadedConfig.getClasses());
-		FMModel.getInstance().setEnumerations(loadedConfig.getEnumerations());
-		
-		List<FMClass> classes = FMModel.getInstance().getClasses();
-		int x = 5;
+		FMModel.getInstance().setClasses(loadedModel.getClasses());
+		FMModel.getInstance().setEnumerations(loadedModel.getEnumerations());
 	}
 	
 	private void generate() {

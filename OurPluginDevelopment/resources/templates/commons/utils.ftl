@@ -14,6 +14,15 @@
     ########################################  END ################################################
 */
 </#macro>
+<#macro plural noun>
+	<#compress>
+		<#if noun?ends_with("s") >
+			${noun}es	
+		<#else>
+			${noun}s
+		</#if>		
+	</#compress>
+</#macro>
 
 <#macro print_attributes attributes>
 	<#if attributes?has_content>
