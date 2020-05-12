@@ -57,7 +57,7 @@
 		</type_mapping>
 		<generator_option>
 			<generatorName>EJBGenerator</generatorName>
-			<outputPath>c:/temp</outputPath>
+			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>ejbclass</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>EJB{0}.java</outputFileName>
@@ -66,7 +66,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>EntityGenerator</generatorName>
-			<outputPath>c:/temp</outputPath>
+			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>entity</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}.java</outputFileName>
@@ -75,13 +75,40 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>RepositoryGenerator</generatorName>
-			<outputPath>c:/temp</outputPath>
+			<outputPath>c:/temp/our_app_hand</outputPath>
 			<templateName>repository</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Repository.java</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
-		</generator_option>		
+		</generator_option>
+		<generator_option>
+			<generatorName>BaseRepositoryGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>base_repository</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}BaseRepository.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>BaseRepositoryImplGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>base_repository_impl</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}BaseRepositoryImpl.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>MainGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>main</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Applicaation.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>	
 	</environment>
 	<environment envName="TESTING">
 		<type_mapping>
@@ -141,7 +168,7 @@
 		</type_mapping>
 		<generator_option>
 			<generatorName>EJBGenerator</generatorName>
-			<outputPath>c:/temp</outputPath>
+			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>ejbclass</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>EJB{0}.java</outputFileName>
@@ -150,7 +177,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>EntityGenerator</generatorName>
-			<outputPath>c:/temp</outputPath>
+			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>entity</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}.java</outputFileName>
@@ -159,10 +186,37 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>RepositoryGenerator</generatorName>
-			<outputPath>c:/temp</outputPath>
+			<outputPath>c:/temp/our_app_hand</outputPath>
 			<templateName>repository</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Repository.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>BaseRepositoryGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>base_repository</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}BaseRepository.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>BaseRepositoryImplGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>base_repository_impl</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}BaseRepositoryImpl.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>MainGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>main</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Applicaation.java</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>

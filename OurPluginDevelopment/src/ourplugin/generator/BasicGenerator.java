@@ -26,7 +26,7 @@ public abstract class BasicGenerator {
 	private String templateDir;
 	private String outputFileName;
 	private boolean overwrite = false;
-	private String filePackage;
+	protected String filePackage;
 	private Configuration cfg;
 	private Template template;	
 	
@@ -83,14 +83,15 @@ public abstract class BasicGenerator {
 	}
 
 	public Writer getWriter(String fileNamePart, String packageName) throws IOException {
-		if (packageName != filePackage) {
-			packageName.replace(".", File.separator);		
-			filePackage = packageName;
+		String realFilePackageRoot = filePackage;
+		if (packageName != filePackage) { 
+		  packageName.replace(".", File.separator);
+		  realFilePackageRoot = packageName; 
 		}
 			
 		String fullPath = outputPath
 				+ File.separator
-				+ (filePackage.isEmpty() ? "" : packageToPath(filePackage)
+				+ (realFilePackageRoot.isEmpty() ? "" : packageToPath(realFilePackageRoot)
 						+ File.separator)
 				+ outputFileName.replace("{0}", fileNamePart);
 
@@ -102,14 +103,15 @@ public abstract class BasicGenerator {
 			}
 		}
 
+		
+		if (!isOverwrite() && of.exists()) {
+			return null;
+		}
+		
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		System.out.println("FilePath: " + of.getPath());
 		System.out.println("FileName: " + of.getName());
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-
-		if (!isOverwrite() && of.exists()) {
-			return null;
-		}
 
 		return new OutputStreamWriter(new FileOutputStream(of));
 
@@ -117,6 +119,10 @@ public abstract class BasicGenerator {
 
 	protected String packageToPath(String pack) {
 		return pack.replace(".", File.separator);
+	}
+	
+	protected String replacePackageFragment(String pack, String selector, String replacment) {
+		return pack.replace(selector, replacment);
 	}
 
 	public boolean isOverwrite() {

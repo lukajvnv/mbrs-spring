@@ -31,7 +31,8 @@ import ${type.typePackage}.${type.name};
 <#if persistentProperties?has_content>
 @Table<@u.print_attributes attributes=persistentProperties />    
 </#if>
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ${class_name_cap} {

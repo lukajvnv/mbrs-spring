@@ -3,7 +3,6 @@ package ourplugin.generator;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
@@ -22,9 +21,9 @@ import ourplugin.generator.options.GeneratorOptions;
  *        complete ejb classes
  */
 
-public class RepositoryGenerator extends BasicGenerator {
+public class BaseRepositoryImplGenerator extends BasicGenerator {
 
-	public RepositoryGenerator(GeneratorOptions generatorOptions) {
+	public BaseRepositoryImplGenerator(GeneratorOptions generatorOptions) {
 		super(generatorOptions);
 	}
 
@@ -36,28 +35,24 @@ public class RepositoryGenerator extends BasicGenerator {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 
-		List<FMClass> classes = FMModel.getInstance().getClasses();
-		for (int i = 0; i < classes.size(); i++) {
-			FMClass cl = classes.get(i);
 			Writer out;
 			Map<String, Object> context = new HashMap<String, Object>();
+			
 			try {
+				FMClass cl = FMModel.getInstance().getClasses().get(0);
+
 				String modelPackage = cl.getTypePackage();
-				String repositoryPackage = replacePackageFragment(modelPackage, "model", "repository");
+				String repositoryPackage = modelPackage.replace("model", "repository");
 				
-//				String filePackageName = repositoryPackage.split("\\.")[0];
-//				filePackageName = replacePackageFragment(repositoryPackage, filePackageName, filePackage);	
-				
-				out = getWriter(cl.getName(), repositoryPackage);
-				if (out != null) {
-					
+				out = getWriter("", repositoryPackage);
+				if (out != null) {					
 					context.clear();
-					context.put("class", cl);
-					context.put("class_package", repositoryPackage);
-					context.put("base_repository", "BaseRepository");
-					context.put("persistentProperties", cl.getPersistentProperties());
-					context.put("properties", cl.getProperties());
-					context.put("importedPackages", cl.getImportedPackages());
+					
+					String repositoryClass = "BaseRepository";
+					context.put("class", repositoryClass);
+					context.put("id_type", "Long");
+					context.put("package", repositoryPackage);
+					
 					getTemplate().process(context, out);
 					out.flush();
 				}
@@ -66,7 +61,7 @@ public class RepositoryGenerator extends BasicGenerator {
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
-		}
+		
 	}
 
 }
