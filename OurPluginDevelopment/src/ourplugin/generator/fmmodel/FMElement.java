@@ -6,6 +6,10 @@ public abstract class FMElement {
 	
 	private String name;
 	
+	public FMElement() {
+		
+	}
+	
 	public FMElement(String name) {
 		this.name = name;
 	}

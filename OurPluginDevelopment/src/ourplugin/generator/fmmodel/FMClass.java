@@ -7,6 +7,10 @@ import java.util.List;
 
 public class FMClass extends FMType {	
 	
+	public FMClass() {
+		super();
+	}
+	
 	private String visibility;
 	
 	//Class properties

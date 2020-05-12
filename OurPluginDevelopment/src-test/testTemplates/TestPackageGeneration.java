@@ -1,9 +1,22 @@
 package testTemplates;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import ourplugin.generator.GeneratorsRunner;
 import ourplugin.generator.fmmodel.FMAttributeNameValue;
@@ -11,6 +24,9 @@ import ourplugin.generator.fmmodel.FMClass;
 import ourplugin.generator.fmmodel.FMModel;
 import ourplugin.generator.fmmodel.FMProperty;
 import ourplugin.generator.fmmodel.FMType;
+import ourplugin.generator.options.GeneratorOptions;
+import ourplugin.generator.options.TypeMapping;
+import ourplugin.generator.options.xml.GeneratorOptionsEnvironment;
 import ourplugin.generator.options.xml.GeneratorOptionsRoot;
 import ourplugin.generator.options.xml.XmlConfigurationHelper;
 
@@ -23,13 +39,15 @@ import ourplugin.generator.options.xml.XmlConfigurationHelper;
 
 public class TestPackageGeneration {
 	
+	public enum TestCase {BASIC_TEST, TEST_FROM_XML}
+	
 	private static final String projectXmlDirectory = "./resources/ProjectOptions.xml"; 
 	
 	public TestPackageGeneration(){
 		
 	}
 	
-	private void initModel() {		
+	private void initTestModel() {		
 		
 		List<FMClass> classes = FMModel.getInstance().getClasses();
 		
@@ -88,9 +106,23 @@ public class TestPackageGeneration {
 		classes.add(cl);		
 	}
 	
-	public void testGenerator() {
-		initModel();		
+	private void initXmlTestModel() throws UnsupportedEncodingException, FileNotFoundException {
+		String path = "..\\models\\our_example.xml";
+		BufferedReader r = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
 		
+		XStream xstream = new XStream(new DomDriver());    
+		 
+		FMModel loadedConfig = (FMModel) xstream.fromXML(r);
+		
+		
+		FMModel.getInstance().setClasses(loadedConfig.getClasses());
+		FMModel.getInstance().setEnumerations(loadedConfig.getEnumerations());
+		
+		List<FMClass> classes = FMModel.getInstance().getClasses();
+		int x = 5;
+	}
+	
+	private void generate() {
 		GeneratorsRunner runner = new GeneratorsRunner();
 		try {
 			runner.generate();
@@ -98,6 +130,16 @@ public class TestPackageGeneration {
 		} catch (IOException e) {
 			System.out.println("Greska pri generisanju sablona!!!");
 		}
+	}
+	
+	public void testGenerator(TestCase testCase) throws UnsupportedEncodingException, FileNotFoundException {
+		if (testCase.equals(TestCase.TEST_FROM_XML)) {
+			initXmlTestModel();
+		} else {
+			initTestModel();
+		}
+				
+		generate();
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -112,7 +154,8 @@ public class TestPackageGeneration {
 		GeneratorOptionsRoot root = conf.loadFromXml();
 		conf.setProjectOptions(root);
 		
-		tg.testGenerator();
+		TestCase testCase = args.length > 0 ? TestCase.BASIC_TEST : TestCase.TEST_FROM_XML;
+		tg.testGenerator(testCase);
 	}
 	
 	

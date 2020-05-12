@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FMProperty extends FMElement  {
+	public FMProperty() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	//Property type
 	private FMType type;
 	// Property visibility (public, private, protected, package)

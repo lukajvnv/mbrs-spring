@@ -2,6 +2,11 @@ package ourplugin.generator.fmmodel;
 
 public class FMType extends FMElement {	
 
+	public FMType() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTypePackage() {
 		return typePackage;
 	}

@@ -28,7 +28,7 @@ public class LogHelperClass {
 	}
 	
 	public void saveToFile(List<String> logMessages) throws IOException {
-		Files.write(Paths.get(logFilePath), logMessages);
+		// Files.write(Paths.get(logFilePath), logMessages);
 	}
 	
 	public List<String> loadFromFile() throws IOException {

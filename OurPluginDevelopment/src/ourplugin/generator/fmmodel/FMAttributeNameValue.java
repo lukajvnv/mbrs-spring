@@ -10,6 +10,11 @@ import java.util.List;
  */
 public class FMAttributeNameValue extends FMElement {
 	
+	public FMAttributeNameValue() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private String annotationName;
 	private List<String> values = new ArrayList<String>();
 	

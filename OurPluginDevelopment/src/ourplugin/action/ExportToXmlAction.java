@@ -27,6 +27,8 @@ import ourplugin.generator.options.ProjectOptions;
 @SuppressWarnings("serial")
 public class ExportToXmlAction extends MDAction{
 	
+	private String filePackage = "generated_app_xml";
+	
 	
 	public ExportToXmlAction(String name) {			
 		super("", name, null, null);		
@@ -39,7 +41,7 @@ public class ExportToXmlAction extends MDAction{
 		
 		if (root == null) return;
 	
-		ModelAnalyzer analyzer = new ModelAnalyzer(root, "ejb");	
+		ModelAnalyzer analyzer = new ModelAnalyzer(root, filePackage);	
 		
 		try {
 			analyzer.prepareModel();	
@@ -63,8 +65,9 @@ public class ExportToXmlAction extends MDAction{
 				try {
 					out = new BufferedWriter(new OutputStreamWriter(
 							new FileOutputStream(fileName), "UTF8"));					
-					xstream.toXML(FMModel.getInstance().getClasses(), out);
-					xstream.toXML(FMModel.getInstance().getEnumerations(), out);
+					//xstream.toXML(FMModel.getInstance().getClasses(), out);
+					//xstream.toXML(FMModel.getInstance().getEnumerations(), out);
+					xstream.toXML(FMModel.getInstance(), out);
 					
 					JOptionPane.showMessageDialog(null, "Model is successufully exported at location: " + fileName);
 				} catch (UnsupportedEncodingException e) {

@@ -7,6 +7,11 @@ import java.util.Iterator;
 
 
 public class FMEnumeration extends FMType {
+	public FMEnumeration() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	private ArrayList <String> Values = new ArrayList<String>();
 	
 	public FMEnumeration(String name, String typePackage) {
