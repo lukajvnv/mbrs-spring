@@ -5,10 +5,16 @@ import ourplugin.generator.BaseRepositoryImplGenerator;
 import ourplugin.generator.BasicGenerator;
 import ourplugin.generator.ControllerAbstractGenerator;
 import ourplugin.generator.ControllerGenerator;
+import ourplugin.generator.ConverterDtoToEntityGenerator;
+import ourplugin.generator.ConverterEntityToDtoGenerator;
+import ourplugin.generator.DtoGenerator;
 import ourplugin.generator.EJBGenerator;
 import ourplugin.generator.EntityGenerator;
 import ourplugin.generator.MainGenerator;
 import ourplugin.generator.RepositoryGenerator;
+import ourplugin.generator.ServiceAbstractGenerator;
+import ourplugin.generator.ServiceGenerator;
+import ourplugin.generator.ServiceImplGenerator;
 import ourplugin.generator.options.GeneratorOptions;
 
 public class GeneratorFactory {
@@ -21,7 +27,13 @@ public class GeneratorFactory {
 		BaseRepositoryImplGenerator,
 		MainGenerator,
 		ControllerAbstractGenerator,
-		ControllerGenerator
+		ControllerGenerator,
+		ServiceGenerator,
+		ServiceAbstractGenerator,
+		ServiceImplGenerator,
+		DtoGenerator,
+		ConverterEntityToDtoGenerator,
+		ConverterDtoToEntityGenerator,
 	}
 
 	public static BasicGenerator getGenerator(GeneratorOptions generatorOptions) {
@@ -50,6 +62,18 @@ public class GeneratorFactory {
 				return new ControllerAbstractGenerator(generatorOptions);
 			case ControllerGenerator:
 				return new ControllerGenerator(generatorOptions);
+			case ServiceGenerator:
+				return new ServiceGenerator(generatorOptions);
+			case ServiceAbstractGenerator:
+				return new ServiceAbstractGenerator(generatorOptions);
+			case ServiceImplGenerator:
+				return new ServiceImplGenerator(generatorOptions);
+			case DtoGenerator:
+				return new DtoGenerator(generatorOptions);
+			case ConverterDtoToEntityGenerator:
+				return new ConverterDtoToEntityGenerator(generatorOptions);
+			case ConverterEntityToDtoGenerator:
+				return new ConverterEntityToDtoGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}
