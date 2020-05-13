@@ -19,10 +19,10 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import ourplugin.analyzer.AnalyzeException;
 import ourplugin.analyzer.ModelAnalyzer;
 import ourplugin.generator.EJBGenerator;
-import ourplugin.generator.GeneratorsRunner;
 import ourplugin.generator.fmmodel.FMModel;
 import ourplugin.generator.options.GeneratorOptions;
 import ourplugin.generator.options.ProjectOptions;
+import ourplugin.generator.util.GeneratorsRunner;
 
 /** Action that activate code generation */
 @SuppressWarnings("serial")

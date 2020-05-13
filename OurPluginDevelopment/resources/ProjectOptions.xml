@@ -64,61 +64,7 @@
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
-		<generator_option>
-			<generatorName>EntityGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>entity</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>{0}.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		<generator_option>
-			<generatorName>RepositoryGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
-			<templateName>repository</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>{0}Repository.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		<generator_option>
-			<generatorName>BaseRepositoryGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>base_repository</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>{0}BaseRepository.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		<generator_option>
-			<generatorName>BaseRepositoryImplGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>base_repository_impl</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>{0}BaseRepositoryImpl.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		<generator_option>
-			<generatorName>MainGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>main</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>{0}Applicaation.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		<generator_option>
-			<generatorName>EJBGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>ejbclass</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>EJB{0}.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		<generator_option>
+		 <generator_option>
 			<generatorName>EntityGenerator</generatorName>
 			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>entity</templateName>
@@ -192,7 +138,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ServiceAbstractGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
+			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>service_abstract</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}AbstractService.java</outputFileName>
@@ -214,6 +160,24 @@
 			<templateName>dto</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Dto.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ConverterDtoToEntityGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>converter_dto_to_entity</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>DtoTo{0}Converter.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ConverterEntityToDtoGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>converter_entity_to_dto</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}ToDToConverter.java</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
@@ -274,5 +238,131 @@
 			<destType>byte</destType>
 			<libraryName>java.lang</libraryName>
 		</type_mapping>
+		<generator_option>
+			<generatorName>EJBGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>ejbclass</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>EJB{0}.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		 <generator_option>
+			<generatorName>EntityGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>entity</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>RepositoryGenerator</generatorName>
+			<outputPath>c:/temp/our_app_hand</outputPath>
+			<templateName>repository</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Repository.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>BaseRepositoryGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>base_repository</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}BaseRepository.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>BaseRepositoryImplGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>base_repository_impl</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}BaseRepositoryImpl.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>MainGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>main</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Applicaation.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ControllerAbstractGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>controller_abstract</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}ControllerAbstract.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ControllerGenerator</generatorName>
+			<outputPath>c:/temp/our_app_hand</outputPath>
+			<templateName>controller</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Controller.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ServiceGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>service</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Service.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ServiceAbstractGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>service_abstract</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}AbstractService.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ServiceImplGenerator</generatorName>
+			<outputPath>c:/temp/our_app_hand</outputPath>
+			<templateName>service_impl</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}ImplService.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>DtoGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>dto</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}Dto.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ConverterDtoToEntityGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>converter_dto_to_entity</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>DtoTo{0}Converter.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>ConverterEntityToDtoGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>converter_entity_to_dto</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}ToDToConverter.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
 	</environment>
 </generator_options>

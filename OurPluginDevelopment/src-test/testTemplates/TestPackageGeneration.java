@@ -18,7 +18,6 @@ import java.util.List;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import ourplugin.generator.GeneratorsRunner;
 import ourplugin.generator.fmmodel.FMAttributeNameValue;
 import ourplugin.generator.fmmodel.FMClass;
 import ourplugin.generator.fmmodel.FMModel;
@@ -29,6 +28,7 @@ import ourplugin.generator.options.TypeMapping;
 import ourplugin.generator.options.xml.GeneratorOptionsEnvironment;
 import ourplugin.generator.options.xml.GeneratorOptionsRoot;
 import ourplugin.generator.options.xml.XmlConfigurationHelper;
+import ourplugin.generator.util.GeneratorsRunner;
 
 /** TestPackageGeneration: Class for package generation testing
  * @ToDo: Create another test class that loads metadata saved by MagicDraw plugin 

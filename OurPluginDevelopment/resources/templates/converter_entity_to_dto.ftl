@@ -20,7 +20,7 @@ public class ${class_name_cap}To${class_dto_cap}Converter implements Converter<$
 	
 	@Override
 	public ${class_dto_cap} convert(${class_name_cap} ${class_name}) {
-		return new ${class_dto_cap}(<#list properties as property>${property.name}.get${property.name?cap_first}()<#if (property?has_next)>,</#if></#list></#list>)
+		return new ${class_dto_cap}(<#list properties as property>${property.name}.get${property.name?cap_first}()<#if (property?has_next)>,</#if></#list>)
 	}
 }
 

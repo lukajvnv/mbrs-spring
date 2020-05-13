@@ -1,11 +1,11 @@
-package ourplugin.generator;
+package ourplugin.generator.util;
 
 import java.io.IOException;
 import java.util.Map;
 
+import ourplugin.generator.BasicGenerator;
 import ourplugin.generator.options.GeneratorOptions;
 import ourplugin.generator.options.ProjectOptions;
-import ourplugin.generator.util.GeneratorFactory;
 
 public class GeneratorsRunner {
 

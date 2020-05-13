@@ -4,6 +4,8 @@
 <@u.gen_template_metadata template_name=(.current_template_name) author=user class_name=class_name_cap/>
 package ${package};
 
+import javax.persistence.EntityManager;
+
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
