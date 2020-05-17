@@ -203,6 +203,79 @@ public class ModelAnalyzer {
 		if (identityStereotype != null) {
 			List<FMAttributeNameValue> identityStereotypeProperties = createAttributes(p, identityStereotype);
 			
+			// **************************************************************
+			// svi primenjeni stereotipovi na taj el.
+			List<Stereotype> allAppliedStereotypes = StereotypesHelper.getStereotypes(p);
+			for(Stereotype allAps : allAppliedStereotypes) {
+				String allApsN = allAps.getName();
+				System.out.println("fkd");
+			}
+			
+			// svi stereotipovi sa hijerarhijom
+			Collection<Stereotype> sH = StereotypesHelper.getStereotypesHierarchy(p);
+			for(Stereotype s : sH) {
+				// elementi dijagrama koji su primenili ovaj stereotip, nema polimorfeo...
+				List<Element> stereotypedExtElements =
+						StereotypesHelper.getExtendedElements(s);
+				for(Element sterEl: stereotypedExtElements) {
+					String sterElN = sterEl.getHumanName();
+					System.out.println("fd");
+					
+				}
+				String sN = s.getName();
+				// na osnovu PRIMENJENIH stereotipova u modelu on skonta i napravi hijerarhiju ka potomcima ako je ima....
+				List<Stereotype> derivedStereotype = StereotypesHelper.getDerivedStereotypes(p, s, false);
+				for(Stereotype dS:  derivedStereotype) {
+					String dsN = dS.getName();
+					System.out.println("fd");
+					
+					List<Property> tags = dS.getOwnedAttribute();
+					for(Property tag : tags) {
+			            String tagName = tag.getName();
+			            System.out.println("fd");
+			         // preuzimanje vrednosti tagova
+			            List<?> values = StereotypesHelper.getStereotypePropertyValue(
+		                        p, s, tag.getName());
+			            System.out.println("fd");
+					}
+					
+				}
+				//svi nasledjeni elementi
+				Collection<com.nomagic.uml2.ext.magicdraw.classes.mdkernel.NamedElement> inheritedEl = s.getInheritedMember();
+				for(com.nomagic.uml2.ext.magicdraw.classes.mdkernel.NamedElement inherE: inheritedEl) {
+					String inherEN = inherE.getName();
+					System.out.println("fldk");
+				}
+				List<Property> tags = s.getOwnedAttribute();
+				for(Property tag : tags) {
+		            String tagName = tag.getName();
+		            System.out.println("fd");
+		         // preuzimanje vrednosti tagova
+		            List<?> values = StereotypesHelper.getStereotypePropertyValue(
+	                        p, s, tag.getName());
+		            
+		            //has tag values
+		            if(values.size() > 0) {
+			            
+		            }
+				}
+				
+				Collection<Property> allTags = s.getAttribute();
+				for(Property tag : allTags) {
+		            String tagName = tag.getName();
+		            System.out.println("fd");
+		         // preuzimanje vrednosti tagova
+		            List<?> values = StereotypesHelper.getStereotypePropertyValue(
+	                        p, s, tag.getName());
+		            
+		            //has tag values
+		            if(values.size() > 0) {
+			            
+		            }
+				}
+			}
+			
+			// *********************************************************************************
 			FMAttributeNameValue strategyAttr = null;
 			for(FMAttributeNameValue att : identityStereotypeProperties) {
 				if(att.getName().equals("strategy")) {
@@ -269,7 +342,7 @@ public class ModelAnalyzer {
 		logMessages.add(String.format(messagePattern, packageName, enumeration.getName()));
 		FMEnumeration fmEnum = new FMEnumeration(enumeration.getName(), packageName);
 		List<EnumerationLiteral> list = enumeration.getOwnedLiteral();
-		for (int i = 0; i < list.size() - 1; i++) {
+		for (int i = 0; i < list.size(); i++) {
 			EnumerationLiteral literal = list.get(i);
 			if (literal.getName() == null)  
 				throw new AnalyzeException("Items of the enumeration " + enumeration.getName() +

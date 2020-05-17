@@ -50,7 +50,7 @@ public class BaseRepositoryImplGenerator extends BasicGenerator {
 					
 					String repositoryClass = "BaseRepository";
 					context.put("class", repositoryClass);
-					context.put("id_type", "Long");
+					context.put("id_type", "Integer");
 					context.put("package", repositoryPackage);
 					
 					getTemplate().process(context, out);

@@ -45,3 +45,14 @@
 		<#if (values?size > 1)>{</#if> <#list values as value> ${value}<#sep>,</#sep> </#list> <#if (values?size > 1)>} </#if>
 	</#compress>
 </#macro>
+
+<#-- filter collections by attribute specified via name and its value -->
+<#function filter things name value>
+    <#local result = []>
+    <#list things as thing>
+        <#if thing[name] == value>
+            <#local result = result + [thing]>
+        </#if>
+    </#list>
+    <#return result>
+</#function>

@@ -15,6 +15,7 @@ import ourplugin.generator.RepositoryGenerator;
 import ourplugin.generator.ServiceAbstractGenerator;
 import ourplugin.generator.ServiceGenerator;
 import ourplugin.generator.ServiceImplGenerator;
+import ourplugin.generator.SqlDataGenerator;
 import ourplugin.generator.options.GeneratorOptions;
 
 public class GeneratorFactory {
@@ -34,6 +35,7 @@ public class GeneratorFactory {
 		DtoGenerator,
 		ConverterEntityToDtoGenerator,
 		ConverterDtoToEntityGenerator,
+		SqlDataGenerator
 	}
 
 	public static BasicGenerator getGenerator(GeneratorOptions generatorOptions) {
@@ -74,6 +76,8 @@ public class GeneratorFactory {
 				return new ConverterDtoToEntityGenerator(generatorOptions);
 			case ConverterEntityToDtoGenerator:
 				return new ConverterEntityToDtoGenerator(generatorOptions);
+			case SqlDataGenerator:
+				return new SqlDataGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}
