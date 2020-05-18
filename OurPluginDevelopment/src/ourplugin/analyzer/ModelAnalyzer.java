@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import com.nomagic.ci.server.ac.core.model.NamedElement;
 import com.nomagic.uml2.ext.jmi.helpers.ModelHelper;
 import com.nomagic.uml2.ext.jmi.helpers.StereotypesHelper;
 import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Class;
@@ -417,8 +416,10 @@ public class ModelAnalyzer {
 		List<FMClass> classes = FMModel.getInstance().getClasses();
 		List<FMEnumeration> enumeration = FMModel.getInstance().getEnumerations();
 	
-		List<FMType> elements = new ArrayList<FMType>(classes);
-		elements.addAll(enumeration);
+		List<FMType> classesTypes = new ArrayList<FMType>(classes);
+		List<FMType> enumTypes = new ArrayList<FMType>(enumeration);
+
+		//elements.addAll(enumeration);
 		
 		for(FMClass cl : classes) {
 			List<FMType> importsToRemove = new ArrayList<FMType>();
@@ -426,16 +427,31 @@ public class ModelAnalyzer {
 			for(FMType typeImport : cl.getImportedPackages()) {
 				// it is not primitive datatype
 				if(typeImport.getTypePackage().equals("")) {
-					FMType type = findElementByTypeName(typeImport.getName(), elements);
-					FMType updatedImport = new FMType(type.getName(), type.getTypePackage());
-					importsToAdd.add(updatedImport);
-					importsToRemove.add(typeImport);
+					FMType classType = findElementByTypeName(typeImport.getName(), classesTypes);
+					FMType enumType = findElementByTypeName(typeImport.getName(), enumTypes);
+					
+					if(classType != null) {
+						FMType updatedImport = new FMType(classType.getName(), classType.getTypePackage(), true);
+						importsToAdd.add(updatedImport);
+						importsToRemove.add(typeImport);
+					} else if(enumType != null) {
+						FMType updatedImport = new FMType(enumType.getName(), enumType.getTypePackage(), false);
+						importsToAdd.add(updatedImport);
+						importsToRemove.add(typeImport);
+					} else {
+						throw new AnalyzeException(String.format("Cound not find type with name %s in model's elements registry", typeImport.getName()));
+					}
+
+//					FMType updatedImport = new FMType(type.getName(), type.getTypePackage());
+//					importsToAdd.add(updatedImport);
+//					importsToRemove.add(typeImport);
 				}
 			}
 			cl.getImportedPackages().removeAll(importsToRemove);
 			cl.getImportedPackages().addAll(importsToAdd);
 			
 		}
+		
 	}
 	
 	/**
@@ -454,11 +470,13 @@ public class ModelAnalyzer {
 			}
 		}
 		
-		if(element != null) {
-			return element;
-		} else {
-			throw new AnalyzeException(String.format("Cound not find type with name %s in model's elements registry", typeName));
-		}
+		return element;
+		
+//		if(element != null) {
+//			return element;
+//		} else {
+//			throw new AnalyzeException(String.format("Cound not find type with name %s in model's elements registry", typeName));
+//		}
 	}
 	
 	/**

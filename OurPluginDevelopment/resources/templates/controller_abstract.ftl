@@ -25,7 +25,7 @@ import ${service_package}.${class_service_cap};
 
 public abstract class ${class_name_cap}ControllerAbstract {
     
-    private static final String BASE_PAGE = "<@u.plural noun=class_name />";
+    private static final String BASE_PAGE = "<@u.plural_print noun=class_name />";
     private static final String FORM_PAGE = "create${class_name_cap}";
     private static final String OVERVIEW_PAGE = "${class_name}Overview";
     
@@ -49,7 +49,7 @@ public abstract class ${class_name_cap}ControllerAbstract {
 
     @GetMapping("/all")
     public String getAll(Model model) {
-        model.addAttribute("<@u.plural noun=class_name />", ${class_service}.getAll());
+        model.addAttribute("<@u.plural_print noun=class_name />", ${class_service}.getAll());
 
         return BASE_PAGE;
     }

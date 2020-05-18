@@ -44,7 +44,7 @@ public class MainGenerator extends BasicGenerator {
 			String repositoryPackage = modelPackage.replace("model", "repository");
 			String mainPackage = modelPackage.replace(".model", "");
 
-			String appName = "Our";
+			String appName = "Plugin";
 			
 			out = getWriter(appName, mainPackage);
 			if (out != null) {					

@@ -14,7 +14,7 @@
     ########################################  END ################################################
 */
 </#macro>
-<#macro plural noun>
+<#macro plural_print noun>
 	<#compress>
 		<#if noun?ends_with("s") >
 			${noun}es	
@@ -23,6 +23,16 @@
 		</#if>		
 	</#compress>
 </#macro>
+
+<#function plural noun>
+	<#local result = "">
+	<#if noun?ends_with("s") >
+		<#local result ="${noun}es">	
+	<#else>
+		<#local result ="${noun}s">	
+	</#if>
+	<#return result>
+</#function>
 
 <#macro print_attributes attributes>
 	<#if attributes?has_content>

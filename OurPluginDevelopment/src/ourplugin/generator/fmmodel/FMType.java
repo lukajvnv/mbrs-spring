@@ -16,6 +16,11 @@ public class FMType extends FMElement {
 		this.typePackage = typePackage;
 	}
 
+	public FMType(String name, String typePackage, boolean classType) {
+		this(name, typePackage);
+		this.classType = classType;
+	}
+
 	public void setTypePackage(String typePackage) {
 		this.typePackage = typePackage;
 	}
@@ -23,5 +28,15 @@ public class FMType extends FMElement {
 	//Qualified package name, used for import declaration 
 	//Empty string for standard library types
 	private String typePackage;
+	
+	private boolean classType;
+
+	public boolean isClassType() {
+		return classType;
+	}
+
+	public void setClassType(boolean classType) {
+		this.classType = classType;
+	}
 
 }

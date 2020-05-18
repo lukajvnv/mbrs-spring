@@ -12,26 +12,30 @@ public class FMEnumeration extends FMType {
 		// TODO Auto-generated constructor stub
 	}
 
-	private ArrayList <String> Values = new ArrayList<String>();
+	private ArrayList <String> values = new ArrayList<String>();
 	
 	public FMEnumeration(String name, String typePackage) {
 		super(name, typePackage);
 	}
 	
 	public Iterator<String> getValueIterator(){
-		return Values.iterator();
+		return values.iterator();
 	}
 	
 	public void addValue(String value){
-		Values.add(value);		
+		values.add(value);		
 	}
 	
 	public int getValuesCount(){
-		return Values.size();
+		return values.size();
 	}
 
 	public String getValueAt(int i){
-		return Values.get(i);
+		return values.get(i);
+	}
+
+	public ArrayList<String> getValues() {
+		return values;
 	}
 	
 }

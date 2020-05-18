@@ -10,12 +10,14 @@ import ourplugin.generator.ConverterEntityToDtoGenerator;
 import ourplugin.generator.DtoGenerator;
 import ourplugin.generator.EJBGenerator;
 import ourplugin.generator.EntityGenerator;
+import ourplugin.generator.EnumGenerator;
 import ourplugin.generator.MainGenerator;
 import ourplugin.generator.RepositoryGenerator;
 import ourplugin.generator.ServiceAbstractGenerator;
 import ourplugin.generator.ServiceGenerator;
 import ourplugin.generator.ServiceImplGenerator;
 import ourplugin.generator.SqlDataGenerator;
+import ourplugin.generator.TestGenerator;
 import ourplugin.generator.options.GeneratorOptions;
 
 public class GeneratorFactory {
@@ -35,7 +37,9 @@ public class GeneratorFactory {
 		DtoGenerator,
 		ConverterEntityToDtoGenerator,
 		ConverterDtoToEntityGenerator,
-		SqlDataGenerator
+		SqlDataGenerator,
+		TestGenerator,
+		EnumGenerator
 	}
 
 	public static BasicGenerator getGenerator(GeneratorOptions generatorOptions) {
@@ -78,6 +82,10 @@ public class GeneratorFactory {
 				return new ConverterEntityToDtoGenerator(generatorOptions);
 			case SqlDataGenerator:
 				return new SqlDataGenerator(generatorOptions);
+			case TestGenerator:
+				return new TestGenerator(generatorOptions);
+			case EnumGenerator:
+				return new EnumGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}
