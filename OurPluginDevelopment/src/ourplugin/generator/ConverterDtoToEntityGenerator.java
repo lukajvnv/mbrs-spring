@@ -56,6 +56,7 @@ public class ConverterDtoToEntityGenerator extends BasicGenerator {
 						context.put("converter_package", converterPackage);	
 						context.put("properties", cl.getProperties());
 						context.put("importedPackages", cl.getImportedPackages());
+						context.put("entities", FMModel.getInstance().getClasses());
 						getTemplate().process(context, out);
 						out.flush();
 					}
