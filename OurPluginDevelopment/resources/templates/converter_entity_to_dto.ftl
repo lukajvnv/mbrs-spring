@@ -22,7 +22,7 @@ public class ${class_name_cap}To${class_dto_cap}Converter implements Converter<$
   	  <#list entities as entity>
 		<#if entity.name == property.name?cap_first>
 	@Autowired
-	private ${entity.name}ToDtoConverter ${property.name}ToDtoConverter;
+	private ${entity.name}To${entity.name}DtoConverter ${property.name}To${entity.name}DtoConverter;
 		</#if>
   	  </#list>
 	</#list>
@@ -30,7 +30,7 @@ public class ${class_name_cap}To${class_dto_cap}Converter implements Converter<$
 	
 	@Override
 	public ${class_dto_cap} convert(${class_name_cap} ${class_name}) {
-		return new ${class_dto_cap}(<#list properties as property><#assign isComplexType = false><#list entities as entity><#if entity.name == property.name?cap_first>${property.name}ToDtoConverter.convert(${class_name}.get${property.name?cap_first}())<#assign isComplexType = true></#if></#list><#if isComplexType == false>${class_name}.get${property.name?cap_first}()</#if><#if (property?has_next)>,</#if></#list>);
+		return new ${class_dto_cap}(<#list properties as property><#assign isComplexType = false><#list entities as entity><#if entity.name == property.name?cap_first>${property.name}To${entity.name}DtoConverter.convert(${class_name}.get${property.name?cap_first}())<#assign isComplexType = true></#if></#list><#if isComplexType == false>${class_name}.get${property.name?cap_first}()</#if><#if (property?has_next)>,</#if></#list>);
 	}
 }
 

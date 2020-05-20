@@ -177,7 +177,7 @@
 			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>converter_dto_to_entity</templateName>
 			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>DtoTo{0}Converter.java</outputFileName>
+			<outputFileName>{0}DtoTo{0}Converter.java</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
@@ -186,7 +186,7 @@
 			<outputPath>c:/temp/our_app_gen</outputPath>
 			<templateName>converter_entity_to_dto</templateName>
 			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>{0}ToDtoConverter.java</outputFileName>
+			<outputFileName>{0}To{0}DtoConverter.java</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
