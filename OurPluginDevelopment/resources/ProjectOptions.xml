@@ -208,6 +208,24 @@
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
+		<generator_option> 
+			<generatorName>ApplicationYmlGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_resources</outputPath>
+			<templateName>application_yml</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>application.yml</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option> 
+			<generatorName>PomXmlGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>pom_xml</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>pom.xml</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
 	</environment>
 	<environment envName="TESTING">
 		<type_mapping>
