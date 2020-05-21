@@ -124,7 +124,11 @@ public abstract class BasicGenerator {
 	protected String replacePackageFragment(String pack, String selector, String replacment) {
 		return pack.replace(selector, replacment);
 	}
-
+	
+	protected String uncapFirst(String string) {
+		return Character.toLowerCase(string.charAt(0)) + string.substring(1);
+	}
+	
 	public boolean isOverwrite() {
 		return overwrite;
 	}

@@ -87,6 +87,20 @@
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
           </identityProperties>
         </ourplugin.generator.fmmodel.FMProperty>
+        <ourplugin.generator.fmmodel.FMProperty>
+          <name>municipality</name>
+          <type>
+            <name>Boolean</name>
+            <typePackage>java.lang</typePackage>
+            <classType>false</classType>
+          </type>
+          <visibility>private</visibility>
+          <lower>1</lower>
+          <upper>1</upper>
+          <persistentAnnotationName>@Column</persistentAnnotationName>
+          <persistentProperties/>
+          <identityProperties/>
+        </ourplugin.generator.fmmodel.FMProperty>
       </FMProperties>
       <importedPackages>
         <ourplugin.generator.fmmodel.FMType>

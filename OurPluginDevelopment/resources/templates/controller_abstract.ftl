@@ -35,9 +35,9 @@ import ${service_package}.${key}ImplService
 
 public abstract class ${class_name_cap}ControllerAbstract {
     
-    private static final String BASE_PAGE = "<@u.plural_print noun=class_name />";
-    private static final String FORM_PAGE = "create${class_name_cap}";
-    private static final String OVERVIEW_PAGE = "${class_name}Overview";
+    private static final String BASE_PAGE = "${class_name}_list";
+    private static final String FORM_PAGE = "${class_name}_form";
+    private static final String OVERVIEW_PAGE = "${class_name}_overview";
     
     protected ${class_service_cap} ${class_service};
     
@@ -51,9 +51,9 @@ public abstract class ${class_name_cap}ControllerAbstract {
        this.${class_service} = ${class_service};
     }
 
-    @GetMapping
+    @GetMapping("/new")
     public String create${class_name_cap}(Model model) {
-        model.addAttribute("${class_name}", new ${class_dto_cap}());
+        model.addAttribute("${class_name}", new ${class_dto_form_cap}());
         <#list entity_properties?values as value>
         model.addAttribute("<@u.plural_print noun=value.name />", ${value.name}ImplService.getAll());	
         </#list>
@@ -104,7 +104,7 @@ public abstract class ${class_name_cap}ControllerAbstract {
                 .build();
         ${class_service}.save(${class_dto});
 
-        return "redirect:/all"
+        return "redirect:/${class_name}"
     }
 
     @GetMapping("/edit")
@@ -119,7 +119,7 @@ public abstract class ${class_name_cap}ControllerAbstract {
     public String delete${class_name_cap}(@RequestParam("id") Integer id) {
         ${class_service}.deleteById(id);
 
-        return "redirect:/all";
+        return "redirect:/${class_name}";
     }
 }
 <@u.block_end />
