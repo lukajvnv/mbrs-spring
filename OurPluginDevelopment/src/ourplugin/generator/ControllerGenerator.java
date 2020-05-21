@@ -2,6 +2,7 @@ package ourplugin.generator;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,8 +11,12 @@ import javax.swing.JOptionPane;
 
 import freemarker.template.TemplateException;
 import ourplugin.generator.fmmodel.FMClass;
+import ourplugin.generator.fmmodel.FMEnumeration;
 import ourplugin.generator.fmmodel.FMModel;
+import ourplugin.generator.fmmodel.FMProperty;
 import ourplugin.generator.options.GeneratorOptions;
+import ourplugin.generator.options.ProjectOptions;
+import ourplugin.generator.options.TypeMapping;
 
 /**
  * EJB generator that now generates incomplete ejb classes based on MagicDraw
@@ -49,8 +54,8 @@ public class ControllerGenerator extends BasicGenerator {
 				
 				out = getWriter(cl.getName(), controllerPackage);
 				if (out != null) {
-					
 					context.clear();
+					
 					context.put("class", cl);
 					context.put("class_package", controllerPackage);
 					context.put("service_package", servicePackage);
