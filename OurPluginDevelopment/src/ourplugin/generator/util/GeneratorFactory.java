@@ -1,5 +1,6 @@
 package ourplugin.generator.util;
 
+import ourplugin.generator.ApplicationYmlGenerator;
 import ourplugin.generator.BaseRepositoryGenerator;
 import ourplugin.generator.BaseRepositoryImplGenerator;
 import ourplugin.generator.BasicGenerator;
@@ -12,6 +13,7 @@ import ourplugin.generator.EJBGenerator;
 import ourplugin.generator.EntityGenerator;
 import ourplugin.generator.EnumGenerator;
 import ourplugin.generator.MainGenerator;
+import ourplugin.generator.PomXmlGenerator;
 import ourplugin.generator.RepositoryGenerator;
 import ourplugin.generator.ServiceAbstractGenerator;
 import ourplugin.generator.ServiceGenerator;
@@ -39,7 +41,9 @@ public class GeneratorFactory {
 		ConverterDtoToEntityGenerator,
 		SqlDataGenerator,
 		TestGenerator,
-		EnumGenerator
+		EnumGenerator,
+		ApplicationYmlGenerator,
+		PomXmlGenerator
 	}
 
 	public static BasicGenerator getGenerator(GeneratorOptions generatorOptions) {
@@ -86,6 +90,10 @@ public class GeneratorFactory {
 				return new TestGenerator(generatorOptions);
 			case EnumGenerator:
 				return new EnumGenerator(generatorOptions);
+			case ApplicationYmlGenerator:
+				return new ApplicationYmlGenerator(generatorOptions);
+			case PomXmlGenerator:
+				return new PomXmlGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}
