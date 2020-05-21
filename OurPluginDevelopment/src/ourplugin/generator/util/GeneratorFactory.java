@@ -12,6 +12,9 @@ import ourplugin.generator.DtoGenerator;
 import ourplugin.generator.EJBGenerator;
 import ourplugin.generator.EntityGenerator;
 import ourplugin.generator.EnumGenerator;
+import ourplugin.generator.JspFormGenerator;
+import ourplugin.generator.JspListGenerator;
+import ourplugin.generator.JspOverviewGenerator;
 import ourplugin.generator.MainGenerator;
 import ourplugin.generator.PomXmlGenerator;
 import ourplugin.generator.RepositoryGenerator;
@@ -43,7 +46,10 @@ public class GeneratorFactory {
 		TestGenerator,
 		EnumGenerator,
 		ApplicationYmlGenerator,
-		PomXmlGenerator
+		PomXmlGenerator,
+		JspListGenerator,
+		JspOverviewGenerator,
+		JspFormGenerator
 	}
 
 	public static BasicGenerator getGenerator(GeneratorOptions generatorOptions) {
@@ -94,6 +100,12 @@ public class GeneratorFactory {
 				return new ApplicationYmlGenerator(generatorOptions);
 			case PomXmlGenerator:
 				return new PomXmlGenerator(generatorOptions);
+			case JspListGenerator:
+				return new JspListGenerator(generatorOptions);
+			case JspOverviewGenerator:
+				return new JspOverviewGenerator(generatorOptions);
+			case JspFormGenerator:
+				return new JspFormGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}

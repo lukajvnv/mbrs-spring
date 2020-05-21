@@ -226,6 +226,33 @@
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
+		<generator_option>
+			<generatorName>JspListGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<templateName>jsp_list</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}_list.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>JspOverviewGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<templateName>jsp_overview</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}_overview.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>JspFormGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<templateName>jsp_form</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}_form.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
 	</environment>
 	<environment envName="TESTING">
 		<type_mapping>
@@ -433,6 +460,51 @@
 			<templateName>test</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}ServiceTest.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>JspListGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<templateName>jsp_list</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}_list.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>JspOverviewGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<templateName>jsp_overview</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}_overview.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
+			<generatorName>JspFormGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<templateName>jsp_form</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}_form.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option> 
+			<generatorName>ApplicationYmlGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen_resources</outputPath>
+			<templateName>application_yml</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>application.yml</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option> 
+			<generatorName>PomXmlGenerator</generatorName>
+			<outputPath>c:/temp/our_app_gen</outputPath>
+			<templateName>pom_xml</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>pom.xml</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>

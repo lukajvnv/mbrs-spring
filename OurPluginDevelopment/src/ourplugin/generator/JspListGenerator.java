@@ -27,9 +27,9 @@ import ourplugin.generator.options.TypeMapping;
  *        complete ejb classes
  */
 
-public class ControllerAbstractGenerator extends BasicGenerator {
+public class JspListGenerator extends BasicGenerator {
 
-	public ControllerAbstractGenerator(GeneratorOptions generatorOptions) {
+	public JspListGenerator(GeneratorOptions generatorOptions) {
 		super(generatorOptions);
 	}
 
@@ -52,7 +52,7 @@ public class ControllerAbstractGenerator extends BasicGenerator {
 				String servicePackage = replacePackageFragment(modelPackage, "model", "service");
 				String dtoPackage = replacePackageFragment(modelPackage, "model", "dto");
 				
-				out = getWriter(cl.getName(), controllerPackage);
+				out = getWriter(uncapFirst(cl.getName()), "webapp.WEB-INF.jsp");
 				if (out != null) {
 					
 					context.clear();
