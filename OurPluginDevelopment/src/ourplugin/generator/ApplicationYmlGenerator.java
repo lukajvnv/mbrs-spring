@@ -32,7 +32,7 @@ public class ApplicationYmlGenerator extends BasicGenerator{
 		Map<String, Object> context = new HashMap<String, Object>();
 	
 		try {
-			String dataSource = "postgres";
+			String dataSource = "h2";
 			String port = "8081";
 			String contextPath = "/myapp";
 			String applicationName = "Springen application";
@@ -78,9 +78,7 @@ public class ApplicationYmlGenerator extends BasicGenerator{
 				context.put("password", password);
 				context.put("h2Path", h2Path);
 				context.put("driverClassName", driverClassName);
-				context.put("hibernateDialect", hibernateDialect);
-				
-				
+				context.put("hibernateDialect", hibernateDialect);			
 				
 				getTemplate().process(context, out);
 				out.flush();

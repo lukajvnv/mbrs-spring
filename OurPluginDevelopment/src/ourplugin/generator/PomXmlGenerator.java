@@ -29,7 +29,7 @@ public class PomXmlGenerator extends BasicGenerator{
 		Map<String, Object> context = new HashMap<String, Object>();
 	
 		try {
-			String dataSource = "postgres";
+			String dataSource = "h2";
 			String groupId = "com.example";
 			String artifactId = "jsp";
 			String version = "0.0.1-SNAPSHOT";
