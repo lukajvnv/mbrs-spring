@@ -494,6 +494,9 @@ public class ModelAnalyzer {
 
 			if (property.getUpper() == -1) {
 				cl.getImportedPackages().add(new FMType("Set", "java.util"));
+				cl.getImportedPackages().add(new FMType("HashSet", "java.util"));
+				cl.getImportedPackages().add(new FMType("List", "java.util"));
+				cl.getImportedPackages().add(new FMType("ArrayList", "java.util"));
 			}
 		}
 	}

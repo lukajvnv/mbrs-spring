@@ -18,6 +18,8 @@
 	date
 	<#elseif prop.type.name == 'Integer'>
 	${index}
+	<#elseif prop.type.name == 'boolean' || prop.type.name == 'Boolean'>
+	true
 	<#else>
 	"${prop.name}${index}"
 	</#if>
@@ -136,16 +138,18 @@ public class ${class_name_cap}ServiceTest {
     public void testGet${class_name_cap}() {
         setUp();
    
-        when(${repository_var}.getOne(1l)).thenReturn(${entity_mock_1_var});
+        Optional<${class_name_cap}> optional${class_name_cap} = Optional.of(${entity_mock_1_var});
+        when(${repository_var}.findById(1l)).thenReturn(optional${class_name_cap});
+        
         when(${entity_to_dto_conv_var}.convert(${entity_mock_1_var})).thenReturn(${dto_mock_1_var});
 		
-        ${class_name_cap}Dto ${class_name_uncap} = ${service_var}.getOne(1l);
+        ${class_name_cap}Dto ${class_name_uncap} = ${service_var}.getOne(1);
         
         <#list properties as property>
         assertThat(${class_name_uncap}.get${property.name?cap_first}()).isEqualTo(${dto_mock_1_var}.get${property.name?cap_first}());
         </#list>
 
-        verify(${repository_var}, times(1)).getOne(1l);
+        verify(${repository_var}, times(1)).findById(1);
         verify(${entity_to_dto_conv_var}, times(1)).convert(${entity_mock_1_var});
         verifyNoMoreInteractions(${repository_var}, ${entity_to_dto_conv_var});
     }
@@ -241,8 +245,8 @@ public class ${class_name_cap}ServiceTest {
         when(${entity_to_dto_conv_var}.convert(${entity_mock_2_var})).thenReturn(${dto_mock_2_var});
 		
         int dbSizeBeforeRemove = ${service_var}.getAll().size();
-        doNothing().when(${repository_var}).deleteById(2l);
-        ${service_var}.deleteById(2l);
+        doNothing().when(${repository_var}).deleteById(2);
+        ${service_var}.deleteById(2);
 		
         when(${repository_var}.findAll()).thenReturn(Arrays.asList(${entity_mock_1_var}));
         when(${entity_to_dto_conv_var}.convert(${entity_mock_1_var})).thenReturn(${dto_mock_1_var});
@@ -250,13 +254,14 @@ public class ${class_name_cap}ServiceTest {
         List<${class_name_cap}Dto> ${entity_list_var}Test = ${service_var}.getAll();
         assertThat(${entity_list_var}Test).hasSize(dbSizeBeforeRemove - 1);
 		
-        when(${repository_var}.getOne(2l)).thenReturn(null);
-        ${class_name_cap}Dto ${class_name_uncap}Test = ${service_var}.getOne(2l);
+        Optional<${class_name_cap}> optional${class_name_cap} = Optional.ofNullable(null);
+        when(${repository_var}.findById(2)).thenReturn(optional${class_name_cap});
+        ${class_name_cap}Dto ${class_name_uncap}Test = ${service_var}.getOne(2);
         assertThat(${class_name_uncap}Test).isNull();
         
-        verify(${repository_var}, times(1)).deleteById(2l);
+        verify(${repository_var}, times(1)).deleteById(2);
         verify(${repository_var}, times(2)).findAll();
-        verify(${repository_var}, times(1)).getOne(2l);
+        verify(${repository_var}, times(1)).findById(2);
         verifyNoMoreInteractions(${repository_var});
     }
 }

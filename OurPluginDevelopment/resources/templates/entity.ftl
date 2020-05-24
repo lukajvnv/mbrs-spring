@@ -17,11 +17,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+<#if persistentProperties?has_content>
+import javax.persistence.Table;  
+</#if>
 
 // lombok classs annotations
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.Builder;
 
 <#list importedPackages as type>
 import ${type.typePackage}.${type.name};
@@ -33,6 +39,7 @@ import ${type.typePackage}.${type.name};
 </#if>
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ${class_name_cap} {

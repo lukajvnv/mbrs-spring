@@ -12,6 +12,7 @@ import ourplugin.generator.DtoGenerator;
 import ourplugin.generator.EJBGenerator;
 import ourplugin.generator.EntityGenerator;
 import ourplugin.generator.EnumGenerator;
+import ourplugin.generator.FormDtoGenerator;
 import ourplugin.generator.JspFormGenerator;
 import ourplugin.generator.JspListGenerator;
 import ourplugin.generator.JspOverviewGenerator;
@@ -21,6 +22,7 @@ import ourplugin.generator.RepositoryGenerator;
 import ourplugin.generator.ServiceAbstractGenerator;
 import ourplugin.generator.ServiceGenerator;
 import ourplugin.generator.ServiceImplGenerator;
+import ourplugin.generator.ServletInitializerGenerator;
 import ourplugin.generator.SqlDataGenerator;
 import ourplugin.generator.TestGenerator;
 import ourplugin.generator.options.GeneratorOptions;
@@ -34,12 +36,14 @@ public class GeneratorFactory {
 		BaseRepositoryGenerator,
 		BaseRepositoryImplGenerator,
 		MainGenerator,
+		ServletInitializerGenerator,
 		ControllerAbstractGenerator,
 		ControllerGenerator,
 		ServiceGenerator,
 		ServiceAbstractGenerator,
 		ServiceImplGenerator,
 		DtoGenerator,
+		FormDtoGenerator,
 		ConverterEntityToDtoGenerator,
 		ConverterDtoToEntityGenerator,
 		SqlDataGenerator,
@@ -86,6 +90,8 @@ public class GeneratorFactory {
 				return new ServiceImplGenerator(generatorOptions);
 			case DtoGenerator:
 				return new DtoGenerator(generatorOptions);
+			case FormDtoGenerator:
+				return new FormDtoGenerator(generatorOptions);
 			case ConverterDtoToEntityGenerator:
 				return new ConverterDtoToEntityGenerator(generatorOptions);
 			case ConverterEntityToDtoGenerator:
@@ -106,6 +112,8 @@ public class GeneratorFactory {
 				return new JspOverviewGenerator(generatorOptions);
 			case JspFormGenerator:
 				return new JspFormGenerator(generatorOptions);
+			case ServletInitializerGenerator:
+				return new ServletInitializerGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}

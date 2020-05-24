@@ -24,13 +24,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import ${dto_package}.${class_dto_cap};
 import ${dto_package}.${class_dto_form_cap};
 import ${service_package}.${class_service_cap};
 
+<#if entity_properties?has_content>
+import java.util.ArrayList;
+import java.util.List;
+</#if>
+
 <#list entity_properties?keys as key>
-import ${service_package}.${key}ImplService
+import ${service_package}.${key}ImplService;
+</#list>
+
+<#list entity_properties?keys as key>
+import ${dto_package}.${key}Dto;
 </#list>
 
 public abstract class ${class_name_cap}ControllerAbstract {
@@ -85,8 +96,8 @@ public abstract class ${class_name_cap}ControllerAbstract {
         ${key}Dto ${value.name}Dto = ${value.name}ImplService.get(${class_dto_form}.get${value.name?cap_first}());
         <#else>
         List<${key}Dto> ${value.name}Dto = new ArrayList<${key}Dto>();
-        for(String id: ${value.name}Dto.get${value.name?cap_first}) {
-            Integer ${value.name}Id = Integer.parseInteger(id);
+        for(String id: ${class_dto_form}.get${value.name?cap_first}()) {
+            Integer ${value.name}Id = Integer.parseInt(id);
             ${value.name}Dto.add(${value.name}ImplService.get(${value.name}Id));
     	}
     	 
@@ -104,7 +115,7 @@ public abstract class ${class_name_cap}ControllerAbstract {
                 .build();
         ${class_service}.save(${class_dto});
 
-        return "redirect:/${class_name}"
+        return "redirect:/${class_name}";
     }
 
     @GetMapping("/edit")

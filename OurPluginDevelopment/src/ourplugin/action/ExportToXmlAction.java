@@ -27,8 +27,9 @@ import ourplugin.generator.options.ProjectOptions;
 @SuppressWarnings("serial")
 public class ExportToXmlAction extends MDAction{
 	
-	private String filePackage = "generated_app_xml";
-	
+	//private String filePackage = "generated_app_xml";
+	private String filePackage = "generated_app";
+
 	
 	public ExportToXmlAction(String name) {			
 		super("", name, null, null);		

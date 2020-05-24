@@ -125,12 +125,15 @@ public class TestGenerator extends BasicGenerator {
 	private static List<FMType> initImports() {
 		List<FMType> imports = new ArrayList<FMType>();
 		
-		String mockitoPackage = "org.mockito.Mockito";
+		String mockitoPackage = "org.mockito";
 		String utilPackage = "java.util";
 		
 		imports.add(new FMType("List", utilPackage));
 		imports.add(new FMType("ArrayList", utilPackage));
 		imports.add(new FMType("Arrays", utilPackage));
+		imports.add(new FMType("Calendar", utilPackage));
+		imports.add(new FMType("Date", utilPackage));
+		imports.add(new FMType("Optional", utilPackage));
 
 		imports.add(new FMType("Mock", mockitoPackage));
 		imports.add(new FMType("InjectMocks", mockitoPackage));

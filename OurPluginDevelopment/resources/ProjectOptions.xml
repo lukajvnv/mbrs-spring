@@ -55,18 +55,9 @@
 			<destType>byte</destType>
 			<libraryName>java.lang</libraryName>
 		</type_mapping>
-		<generator_option>
-			<generatorName>EJBGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>ejbclass</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>EJB{0}.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		 <generator_option>
+		  <generator_option>
 			<generatorName>EntityGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>entity</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}.java</outputFileName>
@@ -75,7 +66,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>EnumGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>enum</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}.java</outputFileName>
@@ -84,7 +75,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>RepositoryGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java-hand</outputPath>
 			<templateName>repository</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Repository.java</outputFileName>
@@ -93,7 +84,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>BaseRepositoryGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>base_repository</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}BaseRepository.java</outputFileName>
@@ -102,7 +93,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>BaseRepositoryImplGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>base_repository_impl</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}BaseRepositoryImpl.java</outputFileName>
@@ -111,7 +102,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>MainGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>main</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Application.java</outputFileName>
@@ -119,8 +110,17 @@
 			<filePackage>generated_app</filePackage>
 		</generator_option>
 		<generator_option>
+			<generatorName>ServletInitializerGenerator</generatorName>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
+			<templateName>servlet_initializer</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}ServletInitializer.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
 			<generatorName>ControllerAbstractGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>controller_abstract</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}ControllerAbstract.java</outputFileName>
@@ -129,7 +129,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ControllerGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java-hand</outputPath>
 			<templateName>controller</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Controller.java</outputFileName>
@@ -138,7 +138,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ServiceGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>service</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Service.java</outputFileName>
@@ -147,7 +147,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ServiceAbstractGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>service_abstract</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}AbstractService.java</outputFileName>
@@ -156,7 +156,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ServiceImplGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java-hand</outputPath>
 			<templateName>service_impl</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}ImplService.java</outputFileName>
@@ -165,7 +165,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>DtoGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>dto</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Dto.java</outputFileName>
@@ -173,8 +173,17 @@
 			<filePackage>generated_app</filePackage>
 		</generator_option>
 		<generator_option>
+			<generatorName>FormDtoGenerator</generatorName>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
+			<templateName>form_dto</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}FormDto.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
 			<generatorName>ConverterDtoToEntityGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>converter_dto_to_entity</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}DtoTo{0}Converter.java</outputFileName>
@@ -183,7 +192,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ConverterEntityToDtoGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>converter_entity_to_dto</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}To{0}DtoConverter.java</outputFileName>
@@ -192,7 +201,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>SqlDataGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_resources</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>sql</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>data.sql</outputFileName>
@@ -201,34 +210,16 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>TestGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_test</outputPath>
+			<outputPath>c:/temp/ourExample/src/test/java</outputPath>
 			<templateName>test</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}ServiceTest.java</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
-		<generator_option> 
-			<generatorName>ApplicationYmlGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_resources</outputPath>
-			<templateName>application_yml</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>application.yml</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
-		<generator_option> 
-			<generatorName>PomXmlGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>pom_xml</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>pom.xml</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
 		<generator_option>
 			<generatorName>JspListGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>jsp_list</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_list.jsp</outputFileName>
@@ -237,7 +228,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>JspOverviewGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>jsp_overview</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_overview.jsp</outputFileName>
@@ -246,10 +237,28 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>JspFormGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>jsp_form</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_form.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option> 
+			<generatorName>ApplicationYmlGenerator</generatorName>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
+			<templateName>application_yml</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>application.yml</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option> 
+			<generatorName>PomXmlGenerator</generatorName>
+			<outputPath>c:/temp/ourExample</outputPath>
+			<templateName>pom_xml</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>pom.xml</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
@@ -310,18 +319,9 @@
 			<destType>byte</destType>
 			<libraryName>java.lang</libraryName>
 		</type_mapping>
-		<generator_option>
-			<generatorName>EJBGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
-			<templateName>ejbclass</templateName>
-			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>EJB{0}.java</outputFileName>
-			<overwrite>true</overwrite>
-			<filePackage>generated_app</filePackage>
-		</generator_option>
 		 <generator_option>
 			<generatorName>EntityGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>entity</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}.java</outputFileName>
@@ -330,7 +330,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>EnumGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>enum</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}.java</outputFileName>
@@ -339,7 +339,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>RepositoryGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java-hand</outputPath>
 			<templateName>repository</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Repository.java</outputFileName>
@@ -348,7 +348,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>BaseRepositoryGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>base_repository</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}BaseRepository.java</outputFileName>
@@ -357,7 +357,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>BaseRepositoryImplGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>base_repository_impl</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}BaseRepositoryImpl.java</outputFileName>
@@ -366,7 +366,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>MainGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>main</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Application.java</outputFileName>
@@ -374,8 +374,17 @@
 			<filePackage>generated_app</filePackage>
 		</generator_option>
 		<generator_option>
+			<generatorName>ServletInitializerGenerator</generatorName>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
+			<templateName>servlet_initializer</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}ServletInitializer.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
 			<generatorName>ControllerAbstractGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>controller_abstract</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}ControllerAbstract.java</outputFileName>
@@ -384,7 +393,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ControllerGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java-hand</outputPath>
 			<templateName>controller</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Controller.java</outputFileName>
@@ -393,7 +402,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ServiceGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>service</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Service.java</outputFileName>
@@ -402,7 +411,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ServiceAbstractGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>service_abstract</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}AbstractService.java</outputFileName>
@@ -411,7 +420,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ServiceImplGenerator</generatorName>
-			<outputPath>c:/temp/our_app_hand</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java-hand</outputPath>
 			<templateName>service_impl</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}ImplService.java</outputFileName>
@@ -420,7 +429,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>DtoGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>dto</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}Dto.java</outputFileName>
@@ -428,8 +437,17 @@
 			<filePackage>generated_app</filePackage>
 		</generator_option>
 		<generator_option>
+			<generatorName>FormDtoGenerator</generatorName>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
+			<templateName>form_dto</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}FormDto.java</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
 			<generatorName>ConverterDtoToEntityGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>converter_dto_to_entity</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}DtoTo{0}Converter.java</outputFileName>
@@ -438,7 +456,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>ConverterEntityToDtoGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample/src/main/java</outputPath>
 			<templateName>converter_entity_to_dto</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}To{0}DtoConverter.java</outputFileName>
@@ -447,7 +465,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>SqlDataGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_resources</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>sql</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>data.sql</outputFileName>
@@ -456,7 +474,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>TestGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_test</outputPath>
+			<outputPath>c:/temp/ourExample/src/test/java</outputPath>
 			<templateName>test</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}ServiceTest.java</outputFileName>
@@ -465,7 +483,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>JspListGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>jsp_list</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_list.jsp</outputFileName>
@@ -474,7 +492,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>JspOverviewGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>jsp_overview</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_overview.jsp</outputFileName>
@@ -483,7 +501,7 @@
 		</generator_option>
 		<generator_option>
 			<generatorName>JspFormGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_jsp</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>jsp_form</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_form.jsp</outputFileName>
@@ -492,7 +510,7 @@
 		</generator_option>
 		<generator_option> 
 			<generatorName>ApplicationYmlGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen_resources</outputPath>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
 			<templateName>application_yml</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>application.yml</outputFileName>
@@ -501,7 +519,7 @@
 		</generator_option>
 		<generator_option> 
 			<generatorName>PomXmlGenerator</generatorName>
-			<outputPath>c:/temp/our_app_gen</outputPath>
+			<outputPath>c:/temp/ourExample</outputPath>
 			<templateName>pom_xml</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>pom.xml</outputFileName>

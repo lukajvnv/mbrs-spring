@@ -34,7 +34,7 @@ public abstract class ${class_name_cap}AbstractService implements ${class_name_c
     }
 	
     @Override
-    List<${ class_dto_cap }> getAll() {
+    public List<${ class_dto_cap }> getAll() {
     	List<${class_dto_cap}> ${class_dto}List = new ArrayList<>();
         for(${class_name_cap} ${class_name} : ${class_name}Repository.findAll()) {
             ${class_dto}List.add(${class_name}To${class_dto_cap}Converter.convert(${class_name}));
@@ -43,13 +43,13 @@ public abstract class ${class_name_cap}AbstractService implements ${class_name_c
     }
     
     @Override
-    ${ class_dto_cap } save(${ class_dto_cap } ${ class_dto }) {
+    public ${ class_dto_cap } save(${ class_dto_cap } ${ class_dto }) {
         ${class_name_cap} ${class_name} = ${class_name}Repository.save(${class_dto}To${class_name_cap}Converter.convert(${class_dto}));
         return ${class_dto}To${class_dto_cap}Converter.convert(${class_name});
     }
     
     @Override
-    ${ class_dto_cap } getOne(Long id) {
+    public ${ class_dto_cap } getOne(Long id) {
     	Optional<${class_name_cap}> ${class_name} = ${class_name}Repository.findById(id);
         if(${class_name}.isPresent()){
             ${class_dto_cap} ${class_dto} = ${class_name}To${class_dto_cap}Converter.convert(${class_name}.get());
@@ -58,7 +58,7 @@ public abstract class ${class_name_cap}AbstractService implements ${class_name_c
     }
     
     @Override
-    void delete(${ class_dto_cap } ${ class_dto }) {
+    public void delete(${ class_dto_cap } ${ class_dto }) {
         ${class_name_cap} ${class_name} = ${class_dto_cap}To${class_name_cap}.convert(${class_dto});
         if(${class_name} != null) {
             ${class_name}Repository.delete(${class_name});
@@ -66,7 +66,7 @@ public abstract class ${class_name_cap}AbstractService implements ${class_name_c
     }
     
     @Override
-    void deleteById(Long id); {
+    public void deleteById(Long id); {
         ${class_name}Repository.deleteById(id);
     }
 	

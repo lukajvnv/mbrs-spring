@@ -21,9 +21,9 @@ import ourplugin.generator.options.GeneratorOptions;
  *        complete ejb classes
  */
 
-public class MainGenerator extends BasicGenerator {
+public class ServletInitializerGenerator extends BasicGenerator {
 
-	public MainGenerator(GeneratorOptions generatorOptions) {
+	public ServletInitializerGenerator(GeneratorOptions generatorOptions) {
 		super(generatorOptions);
 	}
 
@@ -41,20 +41,16 @@ public class MainGenerator extends BasicGenerator {
 			FMClass cl = FMModel.getInstance().getClasses().get(0);
 
 			String modelPackage = cl.getTypePackage();
-			String repositoryPackage = modelPackage.replace("model", "repository");
 			String mainPackage = modelPackage.replace(".model", "");
 
 			String appName = "OurExample";
 			
-			out = getWriter(appName, mainPackage);
+			out = getWriter("", mainPackage);
 			if (out != null) {					
 				context.clear();
 				
-				String repositoryClass = "BaseRepositoryImpl";
 				context.put("app_name", appName);
-				context.put("repository_class", repositoryClass);
 				context.put("base_package", mainPackage);
-				context.put("repository_package", repositoryPackage);
 				getTemplate().process(context, out);
 				out.flush();
 			}

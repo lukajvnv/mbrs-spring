@@ -2,7 +2,7 @@
   <classes>
     <ourplugin.generator.fmmodel.FMClass>
       <name>City</name>
-      <typePackage>generated_app_xml.plugin.model</typePackage>
+      <typePackage>generated_app.ourExample.model</typePackage>
       <classType>false</classType>
       <visibility>public</visibility>
       <FMProperties>
@@ -62,7 +62,7 @@
           <identityProperties/>
         </ourplugin.generator.fmmodel.FMProperty>
         <ourplugin.generator.fmmodel.FMProperty>
-          <name>cityId</name>
+          <name>id</name>
           <type>
             <name>Integer</name>
             <typePackage>java.lang</typePackage>
@@ -82,7 +82,7 @@
               <name>strategy</name>
               <annotationName>@GeneratedValue</annotationName>
               <values>
-                <string>GeneratedValue.IDENTITY</string>
+                <string>GenerationType.IDENTITY</string>
               </values>
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
           </identityProperties>
@@ -105,7 +105,7 @@
       <importedPackages>
         <ourplugin.generator.fmmodel.FMType>
           <name>State</name>
-          <typePackage>generated_app_xml.plugin.model</typePackage>
+          <typePackage>generated_app.ourExample.model</typePackage>
           <classType>true</classType>
         </ourplugin.generator.fmmodel.FMType>
       </importedPackages>
@@ -113,7 +113,7 @@
     </ourplugin.generator.fmmodel.FMClass>
     <ourplugin.generator.fmmodel.FMClass>
       <name>State</name>
-      <typePackage>generated_app_xml.plugin.model</typePackage>
+      <typePackage>generated_app.ourExample.model</typePackage>
       <classType>false</classType>
       <visibility>public</visibility>
       <FMProperties>
@@ -205,65 +205,21 @@
           <lower>0</lower>
           <upper>-1</upper>
           <persistentAnnotationName>@ManyToMany</persistentAnnotationName>
-          <persistentProperties/>
-          <identityProperties/>
-        </ourplugin.generator.fmmodel.FMProperty>
-      </FMProperties>
-      <importedPackages>
-        <ourplugin.generator.fmmodel.FMType>
-          <name>Set</name>
-          <typePackage>java.util</typePackage>
-          <classType>false</classType>
-        </ourplugin.generator.fmmodel.FMType>
-        <ourplugin.generator.fmmodel.FMType reference="../../FMProperties/ourplugin.generator.fmmodel.FMProperty[3]/type"/>
-        <ourplugin.generator.fmmodel.FMType>
-          <name>Set</name>
-          <typePackage>java.util</typePackage>
-          <classType>false</classType>
-        </ourplugin.generator.fmmodel.FMType>
-        <ourplugin.generator.fmmodel.FMType>
-          <name>City</name>
-          <typePackage>generated_app_xml.plugin.model</typePackage>
-          <classType>true</classType>
-        </ourplugin.generator.fmmodel.FMType>
-        <ourplugin.generator.fmmodel.FMType>
-          <name>StateOrganization</name>
-          <typePackage>generated_app_xml.plugin.model</typePackage>
-          <classType>false</classType>
-        </ourplugin.generator.fmmodel.FMType>
-        <ourplugin.generator.fmmodel.FMType>
-          <name>InternationalOrganisation</name>
-          <typePackage>generated_app_xml.plugin.model</typePackage>
-          <classType>true</classType>
-        </ourplugin.generator.fmmodel.FMType>
-      </importedPackages>
-      <persistentProperties>
-        <ourplugin.generator.fmmodel.FMAttributeNameValue>
-          <name>name</name>
-          <values>
-            <string>&quot;country&quot;</string>
-          </values>
-        </ourplugin.generator.fmmodel.FMAttributeNameValue>
-      </persistentProperties>
-    </ourplugin.generator.fmmodel.FMClass>
-    <ourplugin.generator.fmmodel.FMClass>
-      <name>InternationalOrganisation</name>
-      <typePackage>generated_app_xml.plugin.model</typePackage>
-      <classType>false</classType>
-      <visibility>public</visibility>
-      <FMProperties>
-        <ourplugin.generator.fmmodel.FMProperty>
-          <name>state</name>
-          <type>
-            <name>State</name>
-            <typePackage></typePackage>
-            <classType>false</classType>
-          </type>
-          <visibility>private</visibility>
-          <lower>0</lower>
-          <upper>-1</upper>
-          <persistentAnnotationName>@ManyToMany</persistentAnnotationName>
-          <persistentProperties/>
+          <persistentProperties>
+            <ourplugin.generator.fmmodel.FMAttributeNameValue>
+              <name>cascade</name>
+              <values>
+                <string>CascadeType.PERSIST</string>
+                <string>CascadeType.MERGE</string>
+              </values>
+            </ourplugin.generator.fmmodel.FMAttributeNameValue>
+            <ourplugin.generator.fmmodel.FMAttributeNameValue>
+              <name>fetch</name>
+              <values>
+                <string>FetchType.EAGER</string>
+              </values>
+            </ourplugin.generator.fmmodel.FMAttributeNameValue>
+          </persistentProperties>
           <identityProperties/>
         </ourplugin.generator.fmmodel.FMProperty>
         <ourplugin.generator.fmmodel.FMProperty>
@@ -284,9 +240,11 @@
               <values/>
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
             <ourplugin.generator.fmmodel.FMAttributeNameValue>
-              <name></name>
+              <name>strategy</name>
               <annotationName>@GeneratedValue</annotationName>
-              <values/>
+              <values>
+                <string>GenerationType.IDENTITY</string>
+              </values>
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
           </identityProperties>
         </ourplugin.generator.fmmodel.FMProperty>
@@ -298,25 +256,161 @@
           <classType>false</classType>
         </ourplugin.generator.fmmodel.FMType>
         <ourplugin.generator.fmmodel.FMType>
-          <name>State</name>
-          <typePackage>generated_app_xml.plugin.model</typePackage>
+          <name>HashSet</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>List</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>ArrayList</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType reference="../../FMProperties/ourplugin.generator.fmmodel.FMProperty[3]/type"/>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>Set</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>HashSet</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>List</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>ArrayList</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>City</name>
+          <typePackage>generated_app.ourExample.model</typePackage>
+          <classType>true</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>StateOrganization</name>
+          <typePackage>generated_app.ourExample.model</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>InternationalOrganisation</name>
+          <typePackage>generated_app.ourExample.model</typePackage>
           <classType>true</classType>
         </ourplugin.generator.fmmodel.FMType>
       </importedPackages>
       <persistentProperties>
         <ourplugin.generator.fmmodel.FMAttributeNameValue>
-          <name>schema</name>
+          <name>name</name>
           <values>
-            <string>&quot;MySchema&quot;</string>
+            <string>&quot;country&quot;</string>
           </values>
         </ourplugin.generator.fmmodel.FMAttributeNameValue>
       </persistentProperties>
+    </ourplugin.generator.fmmodel.FMClass>
+    <ourplugin.generator.fmmodel.FMClass>
+      <name>InternationalOrganisation</name>
+      <typePackage>generated_app.ourExample.model</typePackage>
+      <classType>false</classType>
+      <visibility>public</visibility>
+      <FMProperties>
+        <ourplugin.generator.fmmodel.FMProperty>
+          <name>state</name>
+          <type>
+            <name>State</name>
+            <typePackage></typePackage>
+            <classType>false</classType>
+          </type>
+          <visibility>private</visibility>
+          <lower>0</lower>
+          <upper>-1</upper>
+          <persistentAnnotationName>@ManyToMany</persistentAnnotationName>
+          <persistentProperties>
+            <ourplugin.generator.fmmodel.FMAttributeNameValue>
+              <name>cascade</name>
+              <values>
+                <string>CascadeType.PERSIST</string>
+                <string>CascadeType.MERGE</string>
+              </values>
+            </ourplugin.generator.fmmodel.FMAttributeNameValue>
+            <ourplugin.generator.fmmodel.FMAttributeNameValue>
+              <name>mappedBy</name>
+              <values>
+                <string>&quot;organisation&quot;</string>
+              </values>
+            </ourplugin.generator.fmmodel.FMAttributeNameValue>
+          </persistentProperties>
+          <identityProperties/>
+        </ourplugin.generator.fmmodel.FMProperty>
+        <ourplugin.generator.fmmodel.FMProperty>
+          <name>id</name>
+          <type>
+            <name>Integer</name>
+            <typePackage>java.lang</typePackage>
+            <classType>false</classType>
+          </type>
+          <visibility>private</visibility>
+          <lower>1</lower>
+          <upper>1</upper>
+          <persistentProperties/>
+          <identityProperties>
+            <ourplugin.generator.fmmodel.FMAttributeNameValue>
+              <name></name>
+              <annotationName>@Id</annotationName>
+              <values/>
+            </ourplugin.generator.fmmodel.FMAttributeNameValue>
+            <ourplugin.generator.fmmodel.FMAttributeNameValue>
+              <name>strategy</name>
+              <annotationName>@GeneratedValue</annotationName>
+              <values>
+                <string>GenerationType.IDENTITY</string>
+              </values>
+            </ourplugin.generator.fmmodel.FMAttributeNameValue>
+          </identityProperties>
+        </ourplugin.generator.fmmodel.FMProperty>
+      </FMProperties>
+      <importedPackages>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>Set</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>HashSet</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>List</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>ArrayList</name>
+          <typePackage>java.util</typePackage>
+          <classType>false</classType>
+        </ourplugin.generator.fmmodel.FMType>
+        <ourplugin.generator.fmmodel.FMType>
+          <name>State</name>
+          <typePackage>generated_app.ourExample.model</typePackage>
+          <classType>true</classType>
+        </ourplugin.generator.fmmodel.FMType>
+      </importedPackages>
+      <persistentProperties/>
     </ourplugin.generator.fmmodel.FMClass>
   </classes>
   <enumerations>
     <ourplugin.generator.fmmodel.FMEnumeration>
       <name>StateOrganization</name>
-      <typePackage>generated_app_xml.plugin.model</typePackage>
+      <typePackage>generated_app.ourExample.model</typePackage>
       <classType>false</classType>
       <values>
         <string>REPUBLIC</string>
