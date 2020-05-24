@@ -30,8 +30,8 @@ public class PomXmlGenerator extends BasicGenerator{
 	
 		try {
 			String dataSource = "h2";
-			String groupId = "com.example";
-			String artifactId = "jsp";
+			String groupId = filePackage;
+			String artifactId = "ourExample";
 			String version = "0.0.1-SNAPSHOT";
 			String applicationName = "Springen application";
 			String viewType = "jsp";

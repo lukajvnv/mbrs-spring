@@ -1,6 +1,8 @@
 <project name="OurPlugin" default="deploy">
 	
 	<property file="build.properties"/>
+	<property name="src" value="${APP_DIR}/src/main/java"></property>
+	<property name="src-hand" value="${APP_DIR}/src/main/java-hand"></property>
 	
 	<path id="mylibs">
 		<fileset dir="lib" includes="*.jar"/>
@@ -44,6 +46,12 @@
 		</copy>
 		<copy todir="${MAGICDRAW_HOME}/plugins/ourplugin/logs">
 			<fileset dir="resources/logs" includes="*.txt"/>
+		</copy>
+	</target>
+	
+	<target name="merge">
+		<copy todir="${src}">
+			<fileset dir="${src-hand}"/>
 		</copy>
 	</target>
 </project>

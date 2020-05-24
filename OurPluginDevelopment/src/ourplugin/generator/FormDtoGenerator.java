@@ -18,9 +18,9 @@ import ourplugin.generator.options.GeneratorOptions;
 import ourplugin.generator.options.ProjectOptions;
 import ourplugin.generator.options.TypeMapping;
 
-public class DtoGenerator extends BasicGenerator{
+public class FormDtoGenerator extends BasicGenerator{
 
-	public DtoGenerator(GeneratorOptions generatorOptions) {
+	public FormDtoGenerator(GeneratorOptions generatorOptions) {
 		super(generatorOptions);
 		// TODO Auto-generated constructor stub
 	}
@@ -46,7 +46,6 @@ public class DtoGenerator extends BasicGenerator{
 				
 				out = getWriter(cl.getName(), dtoPackage);
 				if (out != null) {
-					context.clear();
 					
 					List<String> javaTypes = new ArrayList<String>();
 					List<TypeMapping> typeMappings = ProjectOptions.getProjectOptions().getTypeMappings();
@@ -68,10 +67,10 @@ public class DtoGenerator extends BasicGenerator{
 						}
 					}
 					
+					context.clear();
 					context.put("class", cl);
 					context.put("model_package", modelPackage);
 					context.put("class_package", dtoPackage);
-					context.put("dto_package", dtoPackage);
 					context.put("properties", cl.getProperties());
 					context.put("importedPackages", cl.getImportedPackages());
 					context.put("entity_properties", entity_relations);

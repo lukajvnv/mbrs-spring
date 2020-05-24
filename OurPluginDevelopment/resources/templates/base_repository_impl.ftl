@@ -13,7 +13,7 @@ import ${package}.${base_repository_class_name_cap};
 
 
 public class ${class_name_cap}<T> extends SimpleJpaRepository<T, ${id_type}> implements ${base_repository_class_name_cap}<T> {
-    public MyApplicationRepositoryImpl(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
+    public ${class_name_cap}(JpaEntityInformation<T, ?> entityInformation, EntityManager entityManager) {
 		super(entityInformation, entityManager);
 	}
 }

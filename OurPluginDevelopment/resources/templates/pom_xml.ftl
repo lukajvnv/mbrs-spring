@@ -83,12 +83,6 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		
-		<!-- Thymeleaf -->
-		<!-- <dependency> 
-    		<groupId>org.springframework.boot</groupId> 
-    		<artifactId>spring-boot-starter-thymeleaf</artifactId> 
-		</dependency> -->
-		
 		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>

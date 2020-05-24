@@ -7,7 +7,7 @@ import ${class_package}.${base_repository};
 
 import ${class.typePackage}.${class_name_cap};
 
-@Repository
+<#--  @Repository -->
 public interface ${class_name_cap}Repository extends ${base_repository}<${class_name_cap}> {
 
 }
