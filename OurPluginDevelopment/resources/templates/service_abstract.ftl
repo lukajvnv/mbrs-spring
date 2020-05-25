@@ -27,6 +27,7 @@ public abstract class ${class_name_cap}AbstractService implements ${class_name_c
 
     private final ${class_dto_cap}To${class_name_cap}Converter ${class_dto}To${class_name_cap}Converter;
 
+
     public ${class_name_cap}AbstractService(${class_name_cap}Repository ${class_name}Repository,${class_name_cap}To${class_dto_cap}Converter ${class_name}To${class_dto_cap}Converter, ${class_dto_cap}To${class_name_cap}Converter ${class_dto}To${class_name_cap}Converter) {
         this.${class_name}Repository = ${class_name}Repository;
         this.${class_name}To${class_dto_cap}Converter = ${class_name}To${class_dto_cap}Converter;
@@ -45,28 +46,29 @@ public abstract class ${class_name_cap}AbstractService implements ${class_name_c
     @Override
     public ${ class_dto_cap } save(${ class_dto_cap } ${ class_dto }) {
         ${class_name_cap} ${class_name} = ${class_name}Repository.save(${class_dto}To${class_name_cap}Converter.convert(${class_dto}));
-        return ${class_dto}To${class_dto_cap}Converter.convert(${class_name});
+        return ${class_name}To${class_dto_cap}Converter.convert(${class_name});
     }
     
     @Override
-    public ${ class_dto_cap } getOne(Long id) {
+    public ${ class_dto_cap } getOne(Integer id) {
     	Optional<${class_name_cap}> ${class_name} = ${class_name}Repository.findById(id);
         if(${class_name}.isPresent()){
-            ${class_dto_cap} ${class_dto} = ${class_name}To${class_dto_cap}Converter.convert(${class_name}.get());
+            return ${class_name}To${class_dto_cap}Converter.convert(${class_name}.get());
+        } else {
+			return null;        
         }
-        return ${class_dto};
     }
     
     @Override
     public void delete(${ class_dto_cap } ${ class_dto }) {
-        ${class_name_cap} ${class_name} = ${class_dto_cap}To${class_name_cap}.convert(${class_dto});
+        ${class_name_cap} ${class_name} = ${class_dto}To${class_name_cap}Converter.convert(${class_dto});
         if(${class_name} != null) {
             ${class_name}Repository.delete(${class_name});
         }
     }
     
     @Override
-    public void deleteById(Long id); {
+    public void deleteById(Integer id) {
         ${class_name}Repository.deleteById(id);
     }
 	

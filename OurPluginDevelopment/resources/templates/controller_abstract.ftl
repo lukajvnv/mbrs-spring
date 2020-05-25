@@ -93,12 +93,12 @@ public abstract class ${class_name_cap}ControllerAbstract {
         
     <#list entity_properties as key, value>
         <#if value.upper == 1>
-        ${key}Dto ${value.name}Dto = ${value.name}ImplService.get(${class_dto_form}.get${value.name?cap_first}());
+        ${key}Dto ${value.name}Dto = ${value.name}ImplService.getOne(${class_dto_form}.get${value.name?cap_first}());
         <#else>
         List<${key}Dto> ${value.name}Dto = new ArrayList<${key}Dto>();
         for(String id: ${class_dto_form}.get${value.name?cap_first}()) {
             Integer ${value.name}Id = Integer.parseInt(id);
-            ${value.name}Dto.add(${value.name}ImplService.get(${value.name}Id));
+            ${value.name}Dto.add(${value.name}ImplService.getOne(${value.name}Id));
     	}
     	 
         </#if>	

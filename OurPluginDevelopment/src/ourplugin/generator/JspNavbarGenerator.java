@@ -13,9 +13,9 @@ import ourplugin.generator.fmmodel.FMClass;
 import ourplugin.generator.fmmodel.FMModel;
 import ourplugin.generator.options.GeneratorOptions;
 
-public class ServiceImplGenerator extends BasicGenerator {
+public class JspNavbarGenerator extends BasicGenerator{
 
-	public ServiceImplGenerator(GeneratorOptions generatorOptions) {
+	public JspNavbarGenerator(GeneratorOptions generatorOptions) {
 		super(generatorOptions);
 		// TODO Auto-generated constructor stub
 	}
@@ -27,46 +27,33 @@ public class ServiceImplGenerator extends BasicGenerator {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
-		
+
 		List<FMClass> classes = FMModel.getInstance().getClasses();
-		
-		for (int i = 0; i < classes.size(); i++) { 
+		for (int i = 0; i < classes.size(); i++) {
 			FMClass cl = classes.get(i);
 			Writer out;
 			Map<String, Object> context = new HashMap<String, Object>();
-		
-			
 			try {
 				String modelPackage = cl.getTypePackage();
+				String controllerPackage = replacePackageFragment(modelPackage, "model", "controller");
 				String servicePackage = replacePackageFragment(modelPackage, "model", "service");
 				String dtoPackage = replacePackageFragment(modelPackage, "model", "dto");
-				String repositoryPackage = replacePackageFragment(modelPackage, "model", "repository");
-				String converterPackage = replacePackageFragment(modelPackage, "model", "converter");
 				
-				out = getWriter(cl.getName(), servicePackage);
+				out = getWriter(uncapFirst(cl.getName()), "webapp.WEB-INF.jsp");
 				if (out != null) {
-					
 					context.clear();
 					context.put("class", cl);
-					context.put("model_package", modelPackage);
-					context.put("class_package", servicePackage);
-					context.put("service_package", servicePackage);
-					context.put("repository_package", repositoryPackage);
-					context.put("converter_package", converterPackage);
 					context.put("properties", cl.getProperties());
 					context.put("importedPackages", cl.getImportedPackages());
 					getTemplate().process(context, out);
 					out.flush();
 				}
-					
 			} catch (TemplateException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
-		
 		}
-		
 	}
 
 }

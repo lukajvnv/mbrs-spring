@@ -35,6 +35,7 @@ public class ServiceGenerator extends BasicGenerator{
 			try {
 				String modelPackage = cl.getTypePackage();
 				String servicePackage = replacePackageFragment(modelPackage, "model", "service");
+				String dtoPackage = replacePackageFragment(modelPackage, "model", "dto");
 				
 				out = getWriter(cl.getName(), servicePackage);
 				if(out != null) {
@@ -42,6 +43,7 @@ public class ServiceGenerator extends BasicGenerator{
 					
 					context.put("class", cl);
 					context.put("class_package", servicePackage);
+					context.put("dtoPackage", dtoPackage);
 					context.put("properties", cl.getProperties());
 					context.put("importedPackages", cl.getImportedPackages());
 					getTemplate().process(context, out);

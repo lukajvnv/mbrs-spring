@@ -9,15 +9,15 @@ package ${class_package};
 
 import java.util.List;
 
-import ${class.typePackage}.${class_name_cap};
+import ${dtoPackage}.${class_dto_cap};
 
 public interface ${class_name_cap}Service {
 
     List<${ class_dto_cap }> getAll();
     ${ class_dto_cap } save(${ class_dto_cap } ${ class_dto });
-    ${ class_dto_cap } getOne(Long id);
+    ${ class_dto_cap } getOne(Integer id);
     void delete(${ class_dto_cap } ${ class_dto });
-    void deleteById(Long id);
+    void deleteById(Integer id);
 	
 }
 

@@ -139,7 +139,7 @@ public class ${class_name_cap}ServiceTest {
         setUp();
    
         Optional<${class_name_cap}> optional${class_name_cap} = Optional.of(${entity_mock_1_var});
-        when(${repository_var}.findById(1l)).thenReturn(optional${class_name_cap});
+        when(${repository_var}.findById(1)).thenReturn(optional${class_name_cap});
         
         when(${entity_to_dto_conv_var}.convert(${entity_mock_1_var})).thenReturn(${dto_mock_1_var});
 		

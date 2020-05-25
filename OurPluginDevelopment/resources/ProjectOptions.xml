@@ -244,6 +244,15 @@
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
+		<generator_option>
+			<generatorName>JspNavbarGenerator</generatorName>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
+			<templateName>jsp_navbar</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>navbar.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
 		<generator_option> 
 			<generatorName>ApplicationYmlGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>

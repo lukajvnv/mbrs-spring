@@ -15,6 +15,7 @@ import ourplugin.generator.EnumGenerator;
 import ourplugin.generator.FormDtoGenerator;
 import ourplugin.generator.JspFormGenerator;
 import ourplugin.generator.JspListGenerator;
+import ourplugin.generator.JspNavbarGenerator;
 import ourplugin.generator.JspOverviewGenerator;
 import ourplugin.generator.MainGenerator;
 import ourplugin.generator.PomXmlGenerator;
@@ -53,7 +54,8 @@ public class GeneratorFactory {
 		PomXmlGenerator,
 		JspListGenerator,
 		JspOverviewGenerator,
-		JspFormGenerator
+		JspFormGenerator,
+		JspNavbarGenerator
 	}
 
 	public static BasicGenerator getGenerator(GeneratorOptions generatorOptions) {
@@ -114,6 +116,8 @@ public class GeneratorFactory {
 				return new JspFormGenerator(generatorOptions);
 			case ServletInitializerGenerator:
 				return new ServletInitializerGenerator(generatorOptions);
+			case JspNavbarGenerator:
+				return new JspNavbarGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}

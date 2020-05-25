@@ -11,15 +11,16 @@ package ${class_package};
 
 import org.springframework.stereotype.Service;
 
-@Service
-public class ${class_name_cap}ServiceImpl extends ${class_name_cap}ServiceAbstract { 
+import ${repository_package}.${class_name_cap}Repository;
+import ${converter_package}.${class_name_cap}To${class_dto_cap}Converter;
+import ${converter_package}.${class_dto_cap}To${class_name_cap}Converter;
 
-	public ${class_name_cap}ServiceImpl {
+@Service
+public class ${class_name_cap}ImplService extends ${class_name_cap}AbstractService { 
+
 	
-	}
-	
-	public ${class_name_cap}ServiceImpl(${class_name_cap}AbstractService ${class_name}AbstractService) {
-		super(${class_name}AbstractService);
+	public ${class_name_cap}ImplService(${class_name_cap}Repository ${class_name}Repository,${class_name_cap}To${class_dto_cap}Converter ${class_name}To${class_dto_cap}Converter, ${class_dto_cap}To${class_name_cap}Converter ${class_dto}To${class_name_cap}Converter) {
+		super(${class_name}Repository,${class_name}To${class_dto_cap}Converter,${class_dto}To${class_name_cap}Converter);
 	}
 }
 
