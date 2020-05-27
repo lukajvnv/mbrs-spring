@@ -35,7 +35,7 @@ public class JspNavbarGenerator extends BasicGenerator{
 		try {
 			String bootstrap_css = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css";
 			String bootstrap_js = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js";
-			String jquery = "jquery-3.5.1.min.js";
+			String jquery = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
 			String datatables_css = "https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css";
 			String datatables_js = "https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js";
 			

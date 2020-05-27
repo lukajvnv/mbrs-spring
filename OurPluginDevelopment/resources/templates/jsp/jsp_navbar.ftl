@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link type="text/css" rel="stylesheet" href="${bootstrap_css}">
         <script type="text/javascript" src="${bootstrap_js}"></script>
-<!--         <script src="${jquery}"></script> -->        
+        <script src="${jquery}"></script>       
         <link rel="stylesheet" type="text/css" href="${datatables_css}">
         <script type="text/javascript" charset="utf8" src="${datatables_js}"></script>
     </head>
