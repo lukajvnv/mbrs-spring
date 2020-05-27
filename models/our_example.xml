@@ -55,7 +55,7 @@
             <ourplugin.generator.fmmodel.FMAttributeNameValue>
               <name>length</name>
               <values>
-                <string>5</string>
+                <string>8</string>
               </values>
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
           </persistentProperties>
@@ -101,6 +101,20 @@
           <persistentProperties/>
           <identityProperties/>
         </ourplugin.generator.fmmodel.FMProperty>
+        <ourplugin.generator.fmmodel.FMProperty>
+          <name>population</name>
+          <type>
+            <name>Integer</name>
+            <typePackage>java.lang</typePackage>
+            <classType>false</classType>
+          </type>
+          <visibility>private</visibility>
+          <lower>1</lower>
+          <upper>1</upper>
+          <persistentAnnotationName>@Column</persistentAnnotationName>
+          <persistentProperties/>
+          <identityProperties/>
+        </ourplugin.generator.fmmodel.FMProperty>
       </FMProperties>
       <importedPackages>
         <ourplugin.generator.fmmodel.FMType>
@@ -132,7 +146,7 @@
             <ourplugin.generator.fmmodel.FMAttributeNameValue>
               <name>name</name>
               <values>
-                <string>&quot;countryName&quot;</string>
+                <string>&quot;country_Name&quot;</string>
               </values>
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
           </persistentProperties>
@@ -191,7 +205,14 @@
           <lower>1</lower>
           <upper>1</upper>
           <persistentAnnotationName>@Column</persistentAnnotationName>
-          <persistentProperties/>
+          <persistentProperties>
+            <ourplugin.generator.fmmodel.FMAttributeNameValue>
+              <name>name</name>
+              <values>
+                <string>&quot;state_Type&quot;</string>
+              </values>
+            </ourplugin.generator.fmmodel.FMAttributeNameValue>
+          </persistentProperties>
           <identityProperties/>
         </ourplugin.generator.fmmodel.FMProperty>
         <ourplugin.generator.fmmodel.FMProperty>
@@ -338,7 +359,6 @@
               <name>cascade</name>
               <values>
                 <string>CascadeType.PERSIST</string>
-                <string>CascadeType.MERGE</string>
               </values>
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
             <ourplugin.generator.fmmodel.FMAttributeNameValue>
@@ -376,6 +396,20 @@
             </ourplugin.generator.fmmodel.FMAttributeNameValue>
           </identityProperties>
         </ourplugin.generator.fmmodel.FMProperty>
+        <ourplugin.generator.fmmodel.FMProperty>
+          <name>name</name>
+          <type>
+            <name>String</name>
+            <typePackage>java.lang</typePackage>
+            <classType>false</classType>
+          </type>
+          <visibility>private</visibility>
+          <lower>1</lower>
+          <upper>1</upper>
+          <persistentAnnotationName>@Column</persistentAnnotationName>
+          <persistentProperties/>
+          <identityProperties/>
+        </ourplugin.generator.fmmodel.FMProperty>
       </FMProperties>
       <importedPackages>
         <ourplugin.generator.fmmodel.FMType>
@@ -404,7 +438,14 @@
           <classType>true</classType>
         </ourplugin.generator.fmmodel.FMType>
       </importedPackages>
-      <persistentProperties/>
+      <persistentProperties>
+        <ourplugin.generator.fmmodel.FMAttributeNameValue>
+          <name>name</name>
+          <values>
+            <string>&quot;International_Organisation&quot;</string>
+          </values>
+        </ourplugin.generator.fmmodel.FMAttributeNameValue>
+      </persistentProperties>
     </ourplugin.generator.fmmodel.FMClass>
   </classes>
   <enumerations>

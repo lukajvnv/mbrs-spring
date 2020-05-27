@@ -220,7 +220,7 @@
 		<generator_option>
 			<generatorName>JspListGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>
-			<templateName>jsp_list</templateName>
+			<templateName>jsp/jsp_list</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_list.jsp</outputFileName>
 			<overwrite>true</overwrite>
@@ -229,7 +229,7 @@
 		<generator_option>
 			<generatorName>JspOverviewGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>
-			<templateName>jsp_overview</templateName>
+			<templateName>jsp/jsp_overview</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_overview.jsp</outputFileName>
 			<overwrite>true</overwrite>
@@ -238,7 +238,7 @@
 		<generator_option>
 			<generatorName>JspFormGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>
-			<templateName>jsp_form</templateName>
+			<templateName>jsp/jsp_form</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_form.jsp</outputFileName>
 			<overwrite>true</overwrite>
@@ -247,9 +247,9 @@
 		<generator_option>
 			<generatorName>JspNavbarGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>
-			<templateName>jsp_navbar</templateName>
+			<templateName>jsp/jsp_navbar</templateName>
 			<templateDir>./resources/templates/</templateDir>
-			<outputFileName>navbar.jsp</outputFileName>
+			<outputFileName>{0}navbar.jsp</outputFileName>
 			<overwrite>true</overwrite>
 			<filePackage>generated_app</filePackage>
 		</generator_option>
@@ -491,9 +491,18 @@
 			<filePackage>generated_app</filePackage>
 		</generator_option>
 		<generator_option>
+			<generatorName>JspNavbarGenerator</generatorName>
+			<outputPath>c:/temp/ourExample/src/main</outputPath>
+			<templateName>jsp/jsp_navbar</templateName>
+			<templateDir>./resources/templates/</templateDir>
+			<outputFileName>{0}navbar.jsp</outputFileName>
+			<overwrite>true</overwrite>
+			<filePackage>generated_app</filePackage>
+		</generator_option>
+		<generator_option>
 			<generatorName>JspListGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>
-			<templateName>jsp_list</templateName>
+			<templateName>jsp/jsp_list</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_list.jsp</outputFileName>
 			<overwrite>true</overwrite>
@@ -502,7 +511,7 @@
 		<generator_option>
 			<generatorName>JspOverviewGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>
-			<templateName>jsp_overview</templateName>
+			<templateName>jsp/jsp_overview</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_overview.jsp</outputFileName>
 			<overwrite>true</overwrite>
@@ -511,7 +520,7 @@
 		<generator_option>
 			<generatorName>JspFormGenerator</generatorName>
 			<outputPath>c:/temp/ourExample/src/main</outputPath>
-			<templateName>jsp_form</templateName>
+			<templateName>jsp/jsp_form</templateName>
 			<templateDir>./resources/templates/</templateDir>
 			<outputFileName>{0}_form.jsp</outputFileName>
 			<overwrite>true</overwrite>

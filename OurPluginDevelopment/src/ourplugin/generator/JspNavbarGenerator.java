@@ -29,31 +29,40 @@ public class JspNavbarGenerator extends BasicGenerator{
 		}
 
 		List<FMClass> classes = FMModel.getInstance().getClasses();
-		for (int i = 0; i < classes.size(); i++) {
-			FMClass cl = classes.get(i);
-			Writer out;
-			Map<String, Object> context = new HashMap<String, Object>();
-			try {
-				String modelPackage = cl.getTypePackage();
-				String controllerPackage = replacePackageFragment(modelPackage, "model", "controller");
-				String servicePackage = replacePackageFragment(modelPackage, "model", "service");
-				String dtoPackage = replacePackageFragment(modelPackage, "model", "dto");
+		
+		Writer out;
+		Map<String, Object> context = new HashMap<String, Object>();
+		try {
+			String bootstrap_css = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css";
+			String bootstrap_js = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js";
+			String jquery = "jquery-3.5.1.min.js";
+			String datatables_css = "https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css";
+			String datatables_js = "https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js";
+			
+			String appName = "OurPluginApp";
+
+			out = getWriter("", "webapp.WEB-INF.jsp");
+			if (out != null) {
+				context.clear();
 				
-				out = getWriter(uncapFirst(cl.getName()), "webapp.WEB-INF.jsp");
-				if (out != null) {
-					context.clear();
-					context.put("class", cl);
-					context.put("properties", cl.getProperties());
-					context.put("importedPackages", cl.getImportedPackages());
-					getTemplate().process(context, out);
-					out.flush();
-				}
-			} catch (TemplateException e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
-			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, e.getMessage());
+				context.put("bootstrap_css", bootstrap_css);
+				context.put("bootstrap_js", bootstrap_js);
+				context.put("jquery", jquery);
+				context.put("datatables_css", datatables_css);
+				context.put("datatables_js", datatables_js);
+				
+				context.put("app_name", appName);
+				context.put("entities", classes);
+				
+				getTemplate().process(context, out);
+				out.flush();
 			}
+		} catch (TemplateException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
+		
 	}
 
 }

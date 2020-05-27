@@ -50,7 +50,7 @@ public class ${class_name_cap}To${class_dto_cap}Converter implements Converter<$
 									<#list entities as entity>
 									<#if entity.name == property.type.name>
 									<#if property.upper == 1>
-									${property.name}To${entity.name}DtoConverter.convert(${class_name}.get${entity.name}())
+									${property.name}To${entity.name}DtoConverter.convertBasic(${class_name}.get${entity.name}())
 									<#assign isComplexType = true>
 									<#elseif property.upper == -1 >
 									list${entity.name}Dto(${class_name}.get${property.name?cap_first}())
@@ -63,6 +63,14 @@ public class ${class_name_cap}To${class_dto_cap}Converter implements Converter<$
 									</#if><#if (property?has_next)>,</#if></#list>);
 	}
 	
+	public ${class_dto_cap} convertBasic(${class_name_cap} ${class_name}) {
+        return ${class_dto_cap}.builder()
+						<#list basic_properties as property>
+						       .${property.name}(${class_name}.get${property.name?cap_first}())
+						</#list>
+                               .build();
+	}
+	
 	<#list properties as property>
   	  <#list entities as entity>
   	    <#if entity.name == property.type.name>
@@ -70,7 +78,7 @@ public class ${class_name_cap}To${class_dto_cap}Converter implements Converter<$
   	public List<${entity.name}Dto> list${entity.name}Dto(Set<${entity.name}> set${entity.name}) {
   		List<${entity.name}Dto> retVal = new ArrayList<${entity.name}Dto>();
   		for(${entity.name} ${entity.name?uncap_first} : set${entity.name}) {
-  			retVal.add(${property.name}To${entity.name}DtoConverter.convert(${entity.name?uncap_first}));
+  			retVal.add(${property.name}To${entity.name}DtoConverter.convertBasic(${entity.name?uncap_first}));
   		}
   		return retVal;
   	}

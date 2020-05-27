@@ -44,6 +44,16 @@ import ${service_package}.${key}ImplService;
 import ${dto_package}.${key}Dto;
 </#list>
 
+<#-- Date converter -->
+<#if importedPackages?filter(pack -> pack.name == "Date")?has_content>
+import org.springframework.web.bind.WebDataBinder;
+import java.text.SimpleDateFormat;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import java.util.Date;
+import org.springframework.web.bind.annotation.InitBinder;
+</#if>
+
+
 public abstract class ${class_name_cap}ControllerAbstract {
     
     private static final String BASE_PAGE = "${class_name}_list";
@@ -61,6 +71,16 @@ public abstract class ${class_name_cap}ControllerAbstract {
     public ${class_name_cap}ControllerAbstract(${class_service_cap} ${class_service}) {
        this.${class_service} = ${class_service};
     }
+    
+    <#-- Date converter -->
+    <#if importedPackages?filter(pack -> pack.name == "Date")?has_content>
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        sdf.setLenient(true);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
+    }
+    </#if>
 
     @GetMapping("/new")
     public String create${class_name_cap}(Model model) {
@@ -78,7 +98,7 @@ public abstract class ${class_name_cap}ControllerAbstract {
         return OVERVIEW_PAGE;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public String getAll(Model model) {
         model.addAttribute("<@u.plural_print noun=class_name />", ${class_service}.getAll());
 
@@ -106,7 +126,7 @@ public abstract class ${class_name_cap}ControllerAbstract {
         
         ${class_dto_cap} ${class_dto} = ${class_dto_cap}.builder()
 		<#list properties as property>
-			<#if entity_properties[property.type.name]??>
+			<#if entity_properties[property.type.name]??>           
                 .${property.name}(${property.name}Dto)
             <#else>
                 .${property.name}(${class_dto_form}.get${property.name?cap_first}())
@@ -119,16 +139,43 @@ public abstract class ${class_name_cap}ControllerAbstract {
     }
 
     @GetMapping("/edit")
-    public String edit${class_name_cap}(@RequestParam("id") Integer id, Model model) {
-        ${class_dto_cap} ${class_dto} = ${class_service}.getOne(id);
-        model.addAttribute("${class_name}", ${class_dto});
+    public String edit${class_name_cap}(@RequestParam("id") String id, Model model) {
+        ${class_dto_cap} ${class_dto} = ${class_service}.getOne(Integer.parseInt(id));
+        
+        <#list entity_properties as key, value>
+        <#if value.upper == -1>
+        String[] ${value.name}Array = new String[${class_dto}.get${value.name?cap_first}().size()];
+        for(int i = 0; i < ${class_dto}.get${value.name?cap_first}().size(); i++) {
+        	${value.name}Array[i] = Integer.toString(${class_dto}.get${value.name?cap_first}().get(i).getId());
+        }
+        </#if>	
+        </#list>
+        
+        ${class_dto_form_cap} ${class_dto_form} = ${class_dto_form_cap}.builder()
+        		<#list properties as property>
+        			<#if entity_properties[property.type.name]??>
+              			<#if property.upper == -1>  
+                          .${property.name}(${property.name}Array)
+                        <#else>
+                          .${property.name}(${class_dto}.get${property.name?cap_first}().getId())
+			            </#if>
+			        <#else>
+			              .${property.name}(${class_dto}.get${property.name?cap_first}())
+			        </#if>
+        		</#list>
+                          .build();
+        
+        model.addAttribute("${class_name}", ${class_dto_form});
+        <#list entity_properties?values as value>
+        model.addAttribute("<@u.plural_print noun=value.name />", ${value.name}ImplService.getAll());	
+        </#list>
 
         return FORM_PAGE;
     }
 
-    @DeleteMapping
-    public String delete${class_name_cap}(@RequestParam("id") Integer id) {
-        ${class_service}.deleteById(id);
+    @GetMapping("/delete")
+    public String delete${class_name_cap}(@RequestParam("id") String id) {
+        ${class_service}.deleteById(Integer.parseInt(id));
 
         return "redirect:/${class_name}";
     }

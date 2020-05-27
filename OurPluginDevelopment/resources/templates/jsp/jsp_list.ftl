@@ -3,12 +3,13 @@
 <#assign class_name = class.name?uncap_first>
 <#assign class_name_id = "${" + class_name + ".id" + "}">
 <#assign class_name_plural = u.plural(class_name)>
+<#assign empty_word = "empty ">
 <#macro print_complex_property prop>
 	<#local property_name_url = prop.type.name?uncap_first />
 	<#local property_name = prop.name />
 	<#local property_name_cap = property_name?cap_first />
-	<#local property_id = "${" + property_name + ".id" + "}" />
-                        <td><a href="<c:url value="/${property_name_url}/${property_id}"/>">${property_name_cap}</a></td>
+	<#local property_id = "${" + class_name + "." + property_name + ".id" + "}" />
+                        <td><a href="<c:url value="/${property_name_url}/${property_id}"/>">${property_name_cap} ${property_id}</a></td>
 </#macro>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,8 +28,9 @@
                  <table class="table table-sm table-hover table-bordered text-center mt-3">
                     <tr>
                         <#list properties as property>
-                        <th>${property.name}</th>
+                        <th>${property.name?cap_first}</th>
                         </#list>
+                        <th>Action</th>
                     </tr>
                     <c:forEach items="${ "${" + class_name_plural + "}" }" var="${class_name}">
                     <tr>
@@ -36,16 +38,19 @@
                         <#if entity_properties[property.type.name]??>
                         <#if property.upper == -1>
                         <#-- Not sure about @ManyToMany -->
-                        <c:forEach items="${ "${" + property.name + "}" }" var="${property.name}_sigle">
+                        <td>
+                        <c:if test="${ "${" + empty_word  + class_name + "." + property.name + "}" }">[...]</c:if> 
+                        <c:forEach items="${ "${" + class_name + "." + property.name + "}" }" var="${property.name}_single">
                         <#assign property_id = "${" + property.name + "_single.id" + "}" />
-                        <td><a href="<c:url value="/${property.type.name?uncap_first}/${property_id}"/>">${property.name?cap_first} ${property_id}</a></td>
+                        <a href="<c:url value="/${property.type.name?uncap_first}/${property_id}"/>">${property.name?cap_first} ${property_id}</a>
                         </c:forEach>
+                        </td>
                         <#else>
                         <#-- @ManyToOne or @OneToOne -->
                         <@print_complex_property prop = property />
                         </#if>
                         <#else>
-                        <td>${ "${" + class_name + "." + property.name +  "}" }"</td>
+                        <td>${ "${" + class_name + "." + property.name +  "}" }</td>
 			            </#if>
                     	</#list>
                         <td>

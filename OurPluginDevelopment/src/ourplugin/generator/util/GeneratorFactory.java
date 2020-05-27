@@ -114,10 +114,10 @@ public class GeneratorFactory {
 				return new JspOverviewGenerator(generatorOptions);
 			case JspFormGenerator:
 				return new JspFormGenerator(generatorOptions);
-			case ServletInitializerGenerator:
-				return new ServletInitializerGenerator(generatorOptions);
 			case JspNavbarGenerator:
 				return new JspNavbarGenerator(generatorOptions);
+			case ServletInitializerGenerator:
+				return new ServletInitializerGenerator(generatorOptions);
 			default: 
 				return new EJBGenerator(generatorOptions);
 		}

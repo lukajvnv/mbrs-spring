@@ -32,6 +32,8 @@ import java.util.Set;
   </#list>
 </#list>
 
+import ${repository_package}.${class_name_cap}Repository;
+
 @Component
 public class ${class_dto_cap}To${class_name_cap}Converter implements Converter<${class_dto_cap},${class_name_cap}> {
 	
@@ -49,10 +51,16 @@ public class ${class_dto_cap}To${class_name_cap}Converter implements Converter<$
   	  </#list>
 	</#list>
 	
+	@Autowired
+    private ${class_name_cap}Repository ${class_name}Repository;
 	
 	@Override
 	public ${class_name_cap} convert(${class_dto_cap} ${class_dto}) {
 		return new ${class_name_cap}(<#list properties as property><#assign isComplexType = false><#list entities as entity><#if entity.name == property.type.name><#if property.upper == 1>${entity.name?uncap_first}Repository.getOne(${class_dto}.get${entity.name}().getId())<#assign isComplexType = true><#elseif property.upper == -1 >set${entity.name}(${class_dto}.get${property.name?cap_first}())<#assign isComplexType = true></#if></#if></#list><#if isComplexType == false>${class_dto}.get${property.name?cap_first}()<#assign isComplexType = false></#if><#if (property?has_next)>,</#if></#list>);
+	}
+	
+	public ${class_name_cap} convert(Integer ${class_name}Id) {
+		return ${class_name}Repository.getOne(${class_name}Id);
 	}
 	
 	<#list properties as property>
@@ -62,7 +70,7 @@ public class ${class_dto_cap}To${class_name_cap}Converter implements Converter<$
   	public Set<${entity.name}> set${entity.name}(List<${entity.name}Dto> ${entity.name?uncap_first}Dto) {
   		Set<${entity.name}> retVal = new HashSet<${entity.name}>();
   		for(${entity.name}Dto ${entity.name?uncap_first} : ${entity.name?uncap_first}Dto) {
-  			retVal.add(${entity.name?uncap_first}DtoTo${entity.name}Converter.convert(${entity.name?uncap_first}));
+  			retVal.add(${entity.name?uncap_first}DtoTo${entity.name}Converter.convert(${entity.name?uncap_first}.getId()));
   		}
   		return retVal;
   	}

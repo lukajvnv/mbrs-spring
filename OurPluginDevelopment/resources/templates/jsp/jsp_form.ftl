@@ -9,8 +9,8 @@
 	<#local property_name_url = prop.type.name?uncap_first />
 	<#local property_name = prop.name />
 	<#local property_name_cap = property_name?cap_first />
-	<#local property_id = "${" + property_name + ".id" + "}" />
-                        <td><a href="<c:url value="/${property_name_url}/${property_id}"/>">${property_name_cap}</a></td>
+	<#local property_id = "${" + class_name + "." + property_name + ".id" + "}" />
+                        <td><a href="<c:url value="/${property_name_url}/${property_id}"/>">${property_name_cap} ${property_id}</a></td>
 </#macro>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -34,23 +34,34 @@
                     <#assign label= "<form:label path=\"${property.name}\">${property.name?cap_first}</form:label>">
                     <#if entity_properties[property.type.name]??>
                     <#if property.upper == -1>
-                    <#-- Not sure about @ManyToMany -->
-                    <div class="form-group">
+                    <#-- @ManyToMany  or @OneToMany -->
+                    <div class="form-group " <#if property.persistentAnnotationName == "@OneToMany">style="display: none;"</#if>>
                         ${label}
                         <#-- TODO: SET SOMEHOW ITEMLABEL TO SOME DISPLAY PROPERTY, ADDITIONAL ITEMVALUE TO CUSTOM ID PROPERTY -->
-                        <form:checkboxes items="${u.plural(property.name)}" path="${property.name}" element="div class='checkbox form-control' CssStyle='float:right'" itemValue="id"/>		
+                        <form:checkboxes items="${opening_bracket}${u.plural(property.name)}${closing_bracket}" path="${property.name}" element="div class='checkbox border rounded p-2' " itemValue="id"/>		
                     </div>
-                    <#else>
+                    <#elseif property.upper == 1>
                     <#-- @ManyToOne or @OneToOne -->
                     <div class="form-group">
                         ${label}
                         <form:select path="${property.name}" cssClass="form-control">
                             <option value="-1">Select a ${property.name}</option>
                             <#-- TODO: SET SOMEHOW ITEMLABEL TO SOME DISPLAY PROPERTY, ADDITIONAL ITEMVALUE TO CUSTOM ID PROPERTY -->
-                            <form:options items="${u.plural(property.name)}" itemValue="id"/>
+                            <form:options items="${opening_bracket}${u.plural(property.name)}${closing_bracket}" itemValue="id"/>
                         </form:select>	
                     </div>
                     </#if>
+                    <#elseif enum_types?seq_contains(property.type.name)>
+                    	${label}
+                        <form:select path="${property.name}" cssClass="form-control">
+                            <option value="">Select a ${property.name}</option>
+                            <#-- TODO: SET SOMEHOW ITEMLABEL TO SOME DISPLAY PROPERTY, ADDITIONAL ITEMVALUE TO CUSTOM ID PROPERTY -->
+                            
+                            <c:set var="enum_val"><#list enum_values[property.type.name] as val>${val}<#sep>,</#sep></#list></c:set>
+                            <c:forEach items="${opening_bracket}enum_val${closing_bracket}" var="val">
+        				        <option value="${opening_bracket}val${closing_bracket}" <c:if test="${opening_bracket} val == ${class_name}.${property.name} ${closing_bracket}">selected</c:if>  >${opening_bracket}val${closing_bracket}</option>
+       				        </c:forEach>
+                        </form:select>	
                     <#else>
                     <#-- simple data type -->
                     <#-- checkbox -->

@@ -9,7 +9,7 @@ spring:
   mvc:
     view:
       prefix: /WEB-INF/jsp/
-      sufix: .jsp
+      suffix: .jsp
   datasource:
 <#if dataSource == "h2" || dataSource == "mysql">
     driver-class-name: ${driverClassName}

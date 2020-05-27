@@ -64,9 +64,12 @@ public class JspFormGenerator extends BasicGenerator {
 					}
 					
 					List<String> enumerationTypes = new ArrayList<String>();
+					Map<String, List<String>> enumerationValues = new HashMap<String, List<String>>();
 					List<FMEnumeration> enumerations = FMModel.getInstance().getEnumerations();
 					for(FMEnumeration enumVal: enumerations) {
 						enumerationTypes.add(enumVal.getName());
+						enumerationValues.put(enumVal.getName(), enumVal.getValues());
+						
 					}
 					
 					// find entity relations in properties
@@ -81,6 +84,9 @@ public class JspFormGenerator extends BasicGenerator {
 					context.put("class_package", controllerPackage);
 					context.put("service_package", servicePackage);
 					context.put("dto_package", dtoPackage);
+					
+					context.put("enum_types", enumerationTypes);
+					context.put("enum_values", enumerationValues);
 					
 					context.put("properties", cl.getProperties());
 					context.put("entity_properties", entity_relations);
